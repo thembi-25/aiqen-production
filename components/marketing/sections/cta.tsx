@@ -18,15 +18,11 @@ const trustPoints = [
 export function CTA() {
 
   return (
-    <Section className="relative overflow-hidden border-t border-border">
-
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/2 h-[28rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-[130px]" />
-      </div>
+    <Section className="border-t border-border">
 
       <Container>
 
-        <Reveal className="mx-auto max-w-2xl rounded-3xl border border-border/70 bg-gradient-to-b from-card to-transparent px-6 py-14 text-center shadow-[var(--shadow-elevation-2)] sm:px-12">
+        <Reveal className="mx-auto max-w-2xl rounded-3xl border border-border bg-card px-6 py-14 text-center shadow-[var(--shadow-elevation-2)] sm:px-12">
 
           <Heading>
             Ready to build your AI-powered business?
@@ -42,10 +38,7 @@ export function CTA() {
 
             <Link
               href="/contact"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "h-12 px-6 text-base shadow-[0_0_0_1px_rgba(124,58,237,0.35),0_10px_30px_-10px_rgba(124,58,237,0.65)] transition-all duration-200 hover:scale-[1.02]"
-              )}
+              className={cn(buttonVariants({ size: "lg" }), "h-12 px-6 text-base")}
             >
               Schedule AI Consultation
               <ArrowRight data-icon="inline-end" className="size-4" />
@@ -53,7 +46,7 @@ export function CTA() {
 
             <Link
               href="/contact"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 px-6 text-base transition-transform duration-200 hover:scale-[1.02]")}
+              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 px-6 text-base")}
             >
               Talk With Our Team
             </Link>

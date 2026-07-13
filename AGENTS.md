@@ -22,8 +22,15 @@ Design Principles
 - Mobile first
 - Responsive
 - Accessible
-- Dark futuristic theme
-- Glassmorphism only where appropriate
+- Marketing site (public, pre-sign-in pages): light, minimal theme — warm
+  paper background, near-black text, a single restrained purple accent.
+  Design language references Notion, Anthropic, and InterServer: flat
+  surfaces, low decoration, editorial typography, generous whitespace.
+  Avoid gradients, glow/blur effects, and glassmorphism here.
+- Authenticated app (dashboard, workforce, admin): dark theme, unchanged.
+  Theme is applied via a `dark` class added to `<html>` for those route
+  prefixes only (see the beforeInteractive script in app/layout.tsx) —
+  do not hardcode `dark` on the root layout again.
 - Consistent spacing
 - Consistent typography
 - Large whitespace

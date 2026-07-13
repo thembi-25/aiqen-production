@@ -9,13 +9,13 @@ export function Heading({
 }: HeadingProps) {
   const styles = {
     hero:
-      "text-5xl md:text-7xl font-bold tracking-tight leading-tight",
+      "text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] text-balance",
 
     section:
-      "text-4xl md:text-5xl font-bold tracking-tight",
+      "text-3xl md:text-4xl font-semibold tracking-tight text-balance",
 
     subsection:
-      "text-2xl md:text-3xl font-semibold",
+      "text-xl md:text-2xl font-semibold tracking-tight",
   };
 
   return (

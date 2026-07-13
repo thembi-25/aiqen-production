@@ -21,13 +21,13 @@ export function Stats() {
   return (
     <Section className="py-16 md:py-20">
       <Container>
-        <RevealStagger className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/70 bg-border/70 shadow-[var(--shadow-elevation-1)] md:grid-cols-4">
+        <RevealStagger className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-[var(--shadow-elevation-1)] md:grid-cols-4">
           {stats.map((stat) => (
             <RevealItem
               key={stat.label}
               className="bg-card px-4 py-8 text-center md:py-10"
             >
-              <p className="bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent tabular-nums md:text-5xl">
+              <p className="text-4xl font-semibold tracking-tight text-foreground tabular-nums md:text-5xl">
                 {stat.value}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>

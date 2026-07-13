@@ -34,12 +34,7 @@ export function AIWorkforce() {
   const featured = aiWorkforce.slice(0, 4);
 
   return (
-    <Section className="relative overflow-hidden border-y border-border bg-card">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/2 h-[36rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[150px]" />
-        <div className="absolute right-[-8rem] bottom-[-6rem] h-[20rem] w-[20rem] rounded-full bg-accent/10 blur-[120px]" />
-      </div>
-
+    <Section className="border-y border-border bg-card">
       <Container>
         <Reveal className="mx-auto max-w-2xl space-y-4 text-center">
           <AiqenBadge className="mx-auto">AI Workforce</AiqenBadge>
@@ -76,17 +71,12 @@ export function AIWorkforce() {
           </RevealStagger>
 
           <Reveal delay={0.15} className="relative">
-            <div
-              aria-hidden="true"
-              className="absolute -inset-px -z-10 rounded-[1.75rem] bg-gradient-to-b from-primary/30 via-primary/10 to-transparent opacity-40 blur-sm"
-            />
-
-            <div className="overflow-hidden rounded-3xl border border-border bg-background/60 shadow-[var(--shadow-elevation-4)] backdrop-blur-sm">
+            <div className="overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-elevation-3)]">
               <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
                 <div aria-hidden="true" className="flex items-center gap-1.5">
-                  <span className="size-2.5 rounded-full bg-white/10" />
-                  <span className="size-2.5 rounded-full bg-white/10" />
-                  <span className="size-2.5 rounded-full bg-white/10" />
+                  <span className="size-2.5 rounded-full bg-border" />
+                  <span className="size-2.5 rounded-full bg-border" />
+                  <span className="size-2.5 rounded-full bg-border" />
                 </div>
                 <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
                   <Bot className="size-3.5 text-primary-text" />
@@ -107,7 +97,7 @@ export function AIWorkforce() {
                     </div>
                     <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
+                        className="h-full rounded-full bg-primary"
                         style={{ width: `${workload[index]}%` }}
                       />
                     </div>

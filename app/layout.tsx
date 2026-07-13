@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 import { cn } from "@/lib/utils";
 import { SessionProvider } from "@/components/providers/session-provider";
 import { ImpersonationBanner } from "@/components/admin/impersonation-banner";
@@ -45,8 +46,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("dark font-sans", geist.variable, instrumentSerif.variable)}>
+    <html
+      lang="en"
+      className={cn("font-sans", geist.variable, instrumentSerif.variable)}
+      suppressHydrationWarning
+    >
       <body>
+        <Script id="app-theme" strategy="beforeInteractive">
+          {`(function(){var p=window.location.pathname;if(p==="/dashboard"||p.indexOf("/dashboard/")===0||p==="/workforce"||p.indexOf("/workforce/")===0||p==="/admin"||p.indexOf("/admin/")===0){document.documentElement.classList.add("dark");}})();`}
+        </Script>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"

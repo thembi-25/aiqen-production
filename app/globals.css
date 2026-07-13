@@ -61,7 +61,60 @@ html {
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Light, minimal theme — warm paper background, near-black ink, a single
+   restrained purple accent used sparingly. Referenced design language:
+   Notion (flat surfaces, near-white bg), Anthropic (warm paper tone,
+   editorial type), InterServer (plain, high-contrast, low-decoration). */
 :root {
+  --background: oklch(0.9855 0.0035 80);
+  --foreground: oklch(0.2 0.012 60);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.012 60);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.012 60);
+
+  /* AIQEN Primary Purple — unchanged hue from the brand mark, used only for
+     buttons, links, and small accents rather than gradients or glows.
+     --primary-text is a darker shade of the same hue for accessible colored
+     text set directly on the light background. */
+  --primary: oklch(0.55 0.23 293);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-text: oklch(0.44 0.2 293);
+
+  /* Secondary Surface */
+  --secondary: oklch(0.96 0.004 80);
+  --secondary-foreground: oklch(0.2 0.012 60);
+
+  --muted: oklch(0.955 0.005 75);
+  --muted-foreground: oklch(0.47 0.012 60);
+
+  /* Warm clay — a quiet secondary highlight for live/positive indicators,
+     used far more sparingly than the old teal. */
+  --accent: oklch(0.58 0.14 45);
+  --accent-foreground: oklch(0.99 0 0);
+
+  --destructive: oklch(0.55 0.21 25);
+
+  --border: oklch(0.9 0.006 75);
+  --input: oklch(0.9 0.006 75);
+  --ring: oklch(0.55 0.23 293);
+
+  --radius: 0.625rem;
+
+  /* Dimensional elevation scale — light-theme tuned: soft, diffuse, and
+     barely-there rather than heavy drop shadows. */
+  --shadow-elevation-1: 0 1px 2px rgba(24, 20, 14, 0.04);
+  --shadow-elevation-2: 0 2px 8px rgba(24, 20, 14, 0.05);
+  --shadow-elevation-3: 0 12px 28px rgba(24, 20, 14, 0.07);
+  --shadow-elevation-4: 0 24px 56px rgba(24, 20, 14, 0.09);
+}
+
+/* Dark theme — preserved as-is for the authenticated app (dashboard,
+   workforce, admin). Applied via a `dark` class added to <html> for those
+   routes only; see the beforeInteractive script in app/layout.tsx. */
+.dark {
   --background: oklch(0.09 0.02 288);
   --foreground: oklch(0.98 0 0);
 
@@ -71,22 +124,16 @@ html {
   --popover: oklch(0.13 0.02 288);
   --popover-foreground: oklch(0.98 0 0);
 
-  /* AIQEN Primary Purple — tuned so primary-foreground text on this
-     background clears WCAG AA (4.5:1); see --primary-text below for the
-     lighter shade used when primary-colored text sits directly on a dark
-     surface instead. */
   --primary: oklch(0.55 0.23 293);
   --primary-foreground: oklch(0.98 0 0);
   --primary-text: oklch(0.7 0.2 293);
 
-  /* Secondary Surface */
   --secondary: oklch(0.18 0.02 288);
   --secondary-foreground: oklch(0.98 0 0);
 
   --muted: oklch(0.18 0.02 288);
   --muted-foreground: oklch(0.7 0.02 288);
 
-  /* AI Accent Teal */
   --accent: oklch(0.72 0.14 184);
   --accent-foreground: oklch(0.12 0.02 250);
 
@@ -98,8 +145,6 @@ html {
 
   --radius: 0.75rem;
 
-  /* Dimensional elevation scale — dark-theme tuned. Additive only; no
-     existing token above is renamed or replaced. */
   --shadow-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-elevation-2: 0 4px 10px rgba(0, 0, 0, 0.35);
   --shadow-elevation-3: 0 10px 30px rgba(0, 0, 0, 0.4);

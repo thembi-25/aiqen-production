@@ -47,7 +47,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2.5">
               <span
                 aria-hidden="true"
-                className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-primary-foreground"
+                className="flex size-7 items-center justify-center rounded-lg bg-primary text-xs font-bold text-primary-foreground"
               >
                 A
               </span>

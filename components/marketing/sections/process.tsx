@@ -64,7 +64,7 @@ export function Process() {
             className="absolute top-6 right-[12.5%] left-[12.5%] hidden h-px overflow-hidden bg-border lg:block"
           >
             <motion.div
-              className="h-full origin-left bg-gradient-to-r from-primary/40 via-primary/25 to-primary/40"
+              className="h-full origin-left bg-primary/30"
               initial={reduceMotion ? undefined : { scaleX: 0 }}
               whileInView={reduceMotion ? undefined : { scaleX: 1 }}
               viewport={{ once: true, amount: 0.4 }}

@@ -17,7 +17,7 @@
 - Enterprise SaaS quality.
 - Follow accessibility best practices.
 - Maintain consistent spacing, typography, and color usage.
-- Use a modern dark theme.
+- Marketing site: light, minimal theme (Notion/Anthropic/InterServer-inspired). Authenticated app (dashboard/workforce/admin): dark theme, unchanged. See AGENTS.md for details.
 - Prefer composition over duplication.
 - Never delete existing code without approval.
 - Ask before making breaking changes.

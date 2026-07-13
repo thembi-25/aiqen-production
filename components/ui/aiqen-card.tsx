@@ -14,11 +14,11 @@ export function AiqenCard({
   return (
     <div
       className={cn(
-        "relative rounded-2xl border border-border/70 bg-card p-6 shadow-[var(--shadow-elevation-1)] transition-all duration-300",
+        "relative rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-elevation-1)] transition-colors duration-200",
         variant === "interactive" &&
-          "hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-elevation-3)]",
+          "hover:border-foreground/15 hover:shadow-[var(--shadow-elevation-2)]",
         variant === "featured" &&
-          "border-primary/30 bg-gradient-to-b from-primary/[0.07] to-transparent shadow-[var(--shadow-elevation-3)] ring-1 ring-primary/15",
+          "border-primary/25 ring-1 ring-primary/10",
         className
       )}
     >

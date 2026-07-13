@@ -24,7 +24,7 @@ export function IconTile({ icon: Icon, className, size = "md" }: IconTileProps) 
   return (
     <div
       className={cn(
-        "flex items-center justify-center border border-primary/15 bg-gradient-to-br from-primary/15 to-accent/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] ring-1 ring-primary/5",
+        "flex items-center justify-center border border-border bg-muted",
         tileSizes[size],
         className
       )}

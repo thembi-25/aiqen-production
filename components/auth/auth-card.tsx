@@ -13,19 +13,14 @@ export function AuthCard({ heading, description, children, footer }: AuthCardPro
   return (
     <main
       id="main-content"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-16"
+      className="flex min-h-screen items-center justify-center px-6 py-16"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-[-10rem] left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 h-[24rem] w-[24rem] rounded-full bg-accent/10 blur-[100px]" />
-      </div>
-
       <div className="w-full max-w-md">
         <div className="mb-8 flex justify-center">
           <Link href="/" className="flex items-center gap-2.5">
             <span
               aria-hidden="true"
-              className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-primary-foreground"
+              className="flex size-7 items-center justify-center rounded-lg bg-primary text-xs font-bold text-primary-foreground"
             >
               A
             </span>

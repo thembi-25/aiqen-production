@@ -43,7 +43,7 @@ export function Solutions() {
                 {featured.outcomes.map((outcome) => (
                   <li
                     key={outcome}
-                    className="flex items-start gap-2 rounded-lg border border-border/60 bg-background/40 p-3 text-sm text-muted-foreground"
+                    className="flex items-start gap-2 rounded-lg border border-border bg-background p-3 text-sm text-muted-foreground"
                   >
                     <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent" />
                     {outcome}

@@ -47,7 +47,7 @@ export function Services() {
 
                 <span
                   aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-primary-text to-transparent transition-transform duration-500 group-hover:scale-x-100"
+                  className="absolute inset-x-0 top-0 h-px scale-x-0 bg-primary-text transition-transform duration-500 group-hover:scale-x-100"
                 />
 
                 <div className="flex items-start justify-between">
