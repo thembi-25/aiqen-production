@@ -4,12 +4,13 @@ import { Container } from "@/components/shared/container";
 import { MegaMenu } from "@/components/marketing/mega-menu";
 import { MobileNav } from "@/components/marketing/mobile-nav";
 import { NavAuthLink } from "@/components/marketing/nav-auth-link";
+import { ScrollHeader } from "@/components/marketing/scroll-header";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
+    <ScrollHeader>
       <Container>
 
         <div className="flex h-16 items-center justify-between">
@@ -49,6 +50,6 @@ export function Navbar() {
         </div>
 
       </Container>
-    </header>
+    </ScrollHeader>
   );
 }

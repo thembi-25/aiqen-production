@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight, Bot, Sparkles, TrendingUp } from "lucide-reac
 import { Section } from "@/components/shared/section";
 import { Container } from "@/components/shared/container";
 import { Text } from "@/components/shared/text";
+import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 import { AiqenBadge } from "@/components/ui/aiqen-badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -57,7 +58,7 @@ export function Hero() {
 
         <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
 
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
+          <Reveal>
 
             <AiqenBadge className="items-center gap-2 border-primary/25 bg-primary/[0.07]">
               <LiveDot className="bg-primary-text" />
@@ -73,9 +74,9 @@ export function Hero() {
             </h1>
 
             <Text size="lg" className="mt-7 max-w-lg">
-              AIQEN helps organizations automate workflows, deploy
-              intelligent AI agents, and integrate the tools they already
-              use — turning manual work into measurable growth.
+              AIQEN isn&apos;t a chatbot vendor. We diagnose the operational
+              bottlenecks costing you time and revenue, then design, build,
+              and run the exact AI systems that fix them.
             </Text>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -114,9 +115,9 @@ export function Hero() {
               <ArrowUpRight className="size-3.5" />
             </Link>
 
-          </div>
+          </Reveal>
 
-          <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards delay-150 duration-700 ease-out">
+          <Reveal delay={0.15}>
 
             <div className="relative">
 
@@ -143,12 +144,11 @@ export function Hero() {
                   </span>
                 </div>
 
-                <div className="space-y-2 p-5">
-                  {agents.map((agent, index) => (
-                    <div
+                <RevealStagger className="space-y-2 p-5">
+                  {agents.map((agent) => (
+                    <RevealItem
                       key={agent.name}
-                      className="animate-in fade-in slide-in-from-bottom-2 fill-mode-backwards flex items-center justify-between gap-3 rounded-xl border border-border/60 bg-background/40 px-4 py-3 duration-500 ease-out"
-                      style={{ animationDelay: `${300 + index * 100}ms` }}
+                      className="flex items-center justify-between gap-3 rounded-xl border border-border/60 bg-background/40 px-4 py-3"
                     >
                       <div className="flex items-center gap-3">
                         <LiveDot className="bg-primary" />
@@ -160,9 +160,9 @@ export function Hero() {
                       <span className="shrink-0 rounded-md bg-muted px-2 py-1 text-[0.7rem] font-medium text-muted-foreground">
                         {agent.metric}
                       </span>
-                    </div>
+                    </RevealItem>
                   ))}
-                </div>
+                </RevealStagger>
 
                 <div className="border-t border-border px-5 py-4">
                   <div className="flex items-center justify-between">
@@ -197,7 +197,7 @@ export function Hero() {
 
             </div>
 
-          </div>
+          </Reveal>
 
         </div>
 

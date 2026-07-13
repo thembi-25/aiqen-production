@@ -3,6 +3,7 @@ import { Footer } from "@/components/marketing/footer";
 
 import { Hero } from "@/components/marketing/sections/hero";
 import { Stats } from "@/components/marketing/sections/stats";
+import { Problems } from "@/components/marketing/sections/problems";
 import { Services } from "@/components/marketing/sections/services";
 import { AIWorkforce } from "@/components/marketing/sections/ai-workforce";
 import { Solutions } from "@/components/marketing/sections/solutions";
@@ -26,6 +27,8 @@ export default function Home() {
         <Hero />
 
         <Stats />
+
+        <Problems />
 
         <Services />
 

@@ -5,17 +5,31 @@ import { cn } from "@/lib/utils";
 interface IconTileProps {
   icon: LucideIcon;
   className?: string;
+  size?: "sm" | "md" | "lg";
 }
 
-export function IconTile({ icon: Icon, className }: IconTileProps) {
+const tileSizes = {
+  sm: "size-9 rounded-lg",
+  md: "size-11 rounded-xl",
+  lg: "size-14 rounded-2xl",
+};
+
+const iconSizes = {
+  sm: "size-4",
+  md: "size-5",
+  lg: "size-6",
+};
+
+export function IconTile({ icon: Icon, className, size = "md" }: IconTileProps) {
   return (
     <div
       className={cn(
-        "flex size-11 items-center justify-center rounded-xl border border-primary/15 bg-primary/10",
+        "flex items-center justify-center border border-primary/15 bg-gradient-to-br from-primary/15 to-accent/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] ring-1 ring-primary/5",
+        tileSizes[size],
         className
       )}
     >
-      <Icon className="size-5 text-primary-text" />
+      <Icon className={cn(iconSizes[size], "text-primary-text")} />
     </div>
   );
 }

@@ -97,6 +97,13 @@ html {
   --ring: oklch(0.55 0.23 293);
 
   --radius: 0.75rem;
+
+  /* Dimensional elevation scale — dark-theme tuned. Additive only; no
+     existing token above is renamed or replaced. */
+  --shadow-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-elevation-2: 0 4px 10px rgba(0, 0, 0, 0.35);
+  --shadow-elevation-3: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-elevation-4: 0 24px 60px rgba(0, 0, 0, 0.5);
 }
 
 @layer base {

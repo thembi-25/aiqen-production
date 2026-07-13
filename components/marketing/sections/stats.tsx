@@ -1,5 +1,6 @@
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 
 const stats = [
   { value: "40+", label: "AI systems deployed" },
@@ -20,18 +21,21 @@ export function Stats() {
   return (
     <Section className="py-16 md:py-20">
       <Container>
-        <div className="grid grid-cols-2 gap-8 border-y border-border/70 py-10 md:grid-cols-4">
+        <RevealStagger className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/70 bg-border/70 shadow-[var(--shadow-elevation-1)] md:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            <RevealItem
+              key={stat.label}
+              className="bg-card px-4 py-8 text-center md:py-10"
+            >
+              <p className="bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent tabular-nums md:text-5xl">
                 {stat.value}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
 
-        <div className="mt-12 space-y-6 text-center">
+        <Reveal delay={0.15} className="mt-12 space-y-6 text-center">
           <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
             Trusted by forward-thinking teams
           </p>
@@ -39,13 +43,13 @@ export function Stats() {
             {trustedBy.map((name) => (
               <span
                 key={name}
-                className="text-lg font-semibold tracking-tight text-muted-foreground/60 transition-colors hover:text-foreground"
+                className="text-lg font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
               >
                 {name}
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

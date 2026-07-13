@@ -6,6 +6,7 @@ import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
 import { IconTile } from "@/components/shared/icon-tile";
+import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 import { AiqenBadge } from "@/components/ui/aiqen-badge";
 import { AiqenCard } from "@/components/ui/aiqen-card";
 import { buttonVariants } from "@/components/ui/button";
@@ -18,27 +19,30 @@ export function Industries() {
   return (
     <Section id="industries" className="border-y border-border bg-card">
       <Container>
-        <div className="mx-auto max-w-2xl space-y-4 text-center">
+        <Reveal className="mx-auto max-w-2xl space-y-4 text-center">
           <AiqenBadge className="mx-auto">Industries</AiqenBadge>
           <Heading>AI solutions for every modern business</Heading>
           <Text size="lg" className="mx-auto">
             AIQEN adapts artificial intelligence solutions to your business goals, systems, and
             workflows.
           </Text>
-        </div>
+        </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="mt-14 grid gap-4 sm:grid-cols-2">
           {featured.map((industry) => (
-            <AiqenCard
-              key={industry.slug}
-              className="transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
-            >
-              <IconTile icon={industry.icon} />
-              <h3 className="mt-5 text-xl font-semibold text-foreground">{industry.title}</h3>
-              <p className="mt-3 text-muted-foreground">{industry.description}</p>
-            </AiqenCard>
+            <RevealItem key={industry.slug}>
+              <AiqenCard variant="interactive" className="flex h-full items-start gap-4 p-5">
+                <IconTile icon={industry.icon} size="sm" className="mt-0.5 shrink-0" />
+                <div>
+                  <h3 className="text-base font-semibold text-foreground">{industry.title}</h3>
+                  <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">
+                    {industry.description}
+                  </p>
+                </div>
+              </AiqenCard>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
 
         <div className="mt-10 flex justify-center">
           <Link
