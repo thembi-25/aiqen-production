@@ -12,7 +12,7 @@ export function AiqenCard({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-border bg-card p-6 shadow-sm",
+        "rounded-2xl border border-border/70 bg-card p-6 shadow-sm shadow-black/10",
         className
       )}
     >

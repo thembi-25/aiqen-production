@@ -10,6 +10,7 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
+import { PageHeroGlow } from "@/components/shared/page-hero-glow";
 import { AiqenBadge } from "@/components/ui/aiqen-badge";
 import { AiqenCard } from "@/components/ui/aiqen-card";
 import { buttonVariants } from "@/components/ui/button";
@@ -44,7 +45,8 @@ export default function AIWorkforcePage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="pb-16 pt-32">
+        <Section className="relative overflow-hidden pb-16 pt-32">
+          <PageHeroGlow />
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">

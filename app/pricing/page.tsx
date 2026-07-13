@@ -8,6 +8,7 @@ import { FAQ } from "@/components/marketing/sections/faq";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
+import { PageHeroGlow } from "@/components/shared/page-hero-glow";
 import { AiqenBadge } from "@/components/ui/aiqen-badge";
 
 export const metadata: Metadata = {
@@ -22,7 +23,8 @@ export default function PricingPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="pb-0 pt-32">
+        <Section className="relative overflow-hidden pb-0 pt-32">
+          <PageHeroGlow />
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">Pricing</AiqenBadge>

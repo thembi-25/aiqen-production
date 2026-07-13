@@ -2,6 +2,7 @@ import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
+import { AiqenBadge } from "@/components/ui/aiqen-badge";
 import {
   Accordion,
   AccordionItem,
@@ -17,14 +18,15 @@ export function FAQ({ limit }: { limit?: number }) {
     <Section id="faq">
       <Container>
         <div className="mx-auto max-w-3xl space-y-6">
-          <div className="text-center">
-            <Heading>Frequently Asked Questions</Heading>
-            <Text size="lg" className="mx-auto mt-4 max-w-xl">
+          <div className="space-y-4 text-center">
+            <AiqenBadge className="mx-auto">FAQ</AiqenBadge>
+            <Heading>Frequently asked questions</Heading>
+            <Text size="lg" className="mx-auto max-w-xl">
               Everything you need to know before getting started with AIQEN.
             </Text>
           </div>
 
-          <Accordion multiple className="mt-4 rounded-2xl border border-border bg-card px-6">
+          <Accordion multiple className="mt-4 rounded-2xl border border-border/70 bg-card px-6 shadow-sm shadow-black/10">
             {items.map((item) => (
               <AccordionItem key={item.question} value={item.question}>
                 <AccordionTrigger>{item.question}</AccordionTrigger>

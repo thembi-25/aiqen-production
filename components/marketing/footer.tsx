@@ -40,12 +40,18 @@ const columns: { title: string; links: { href: string; label: string }[] }[] = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border/70">
       <Container>
         <div className="grid gap-12 py-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="max-w-xs space-y-4">
-            <Link href="/" className="text-2xl font-bold tracking-tight text-foreground">
-              AIQEN
+            <Link href="/" className="flex items-center gap-2.5">
+              <span
+                aria-hidden="true"
+                className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-primary-foreground"
+              >
+                A
+              </span>
+              <span className="text-lg font-bold tracking-tight text-foreground">AIQEN</span>
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground">
               AI Consulting &amp; Automation for businesses ready to build a real AI workforce.
@@ -97,7 +103,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border py-8 text-sm text-muted-foreground sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/70 py-8 text-sm text-muted-foreground sm:flex-row">
           <p>© {new Date().getFullYear()} AIQEN. AI Consulting &amp; Automation.</p>
           <p>hello@aiqen.com</p>
         </div>

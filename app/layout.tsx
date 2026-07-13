@@ -1,11 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Instrument_Serif } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { SessionProvider } from "@/components/providers/session-provider";
 import { ImpersonationBanner } from "@/components/admin/impersonation-banner";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+});
 
 const siteUrl = "https://aiqen.com";
 const siteName = "AIQEN";
@@ -39,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("dark font-sans", geist.variable)}>
+    <html lang="en" className={cn("dark font-sans", geist.variable, instrumentSerif.variable)}>
       <body>
         <a
           href="#main-content"

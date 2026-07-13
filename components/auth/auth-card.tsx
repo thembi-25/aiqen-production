@@ -21,9 +21,15 @@ export function AuthCard({ heading, description, children, footer }: AuthCardPro
       </div>
 
       <div className="w-full max-w-md">
-        <div className="mb-8 text-center">
-          <Link href="/" className="text-2xl font-bold tracking-tight text-foreground">
-            AIQEN
+        <div className="mb-8 flex justify-center">
+          <Link href="/" className="flex items-center gap-2.5">
+            <span
+              aria-hidden="true"
+              className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-primary-foreground"
+            >
+              A
+            </span>
+            <span className="text-lg font-bold tracking-tight text-foreground">AIQEN</span>
           </Link>
         </div>
 

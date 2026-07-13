@@ -10,8 +10,8 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden w-64 shrink-0 border-r border-border/50 lg:block">
-      <nav className="sticky top-20 flex flex-col gap-1 p-4">
+    <aside className="hidden w-64 shrink-0 border-r border-border/60 lg:block">
+      <nav className="sticky top-16 flex flex-col gap-1 p-4">
         {navItems.map((item) => {
           const isActive =
             item.href === "/admin" ? pathname === "/admin" : pathname.startsWith(item.href);

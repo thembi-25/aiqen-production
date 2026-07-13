@@ -7,6 +7,7 @@ import { ContactForm } from "@/components/marketing/contact-form";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
+import { PageHeroGlow } from "@/components/shared/page-hero-glow";
 import { AiqenBadge } from "@/components/ui/aiqen-badge";
 import { AiqenCard } from "@/components/ui/aiqen-card";
 
@@ -27,7 +28,8 @@ export default function ContactPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="pb-16 pt-32">
+        <Section className="relative overflow-hidden pb-16 pt-32">
+          <PageHeroGlow />
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">Contact</AiqenBadge>

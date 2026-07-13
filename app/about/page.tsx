@@ -8,6 +8,7 @@ import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
+import { PageHeroGlow } from "@/components/shared/page-hero-glow";
 import { AiqenBadge } from "@/components/ui/aiqen-badge";
 import { AiqenCard } from "@/components/ui/aiqen-card";
 
@@ -63,7 +64,8 @@ export default function AboutPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="pt-32 pb-16">
+        <Section className="relative overflow-hidden pt-32 pb-16">
+          <PageHeroGlow />
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">

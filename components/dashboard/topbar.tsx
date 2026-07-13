@@ -10,13 +10,19 @@ export function Topbar({ userName }: { userName: string }) {
   const unreadCount = getUnreadNotificationCount();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/75 backdrop-blur-xl">
       <Container>
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
             <MobileSidebar />
-            <Link href="/" className="text-2xl font-bold tracking-tight text-foreground">
-              AIQEN
+            <Link href="/" className="flex items-center gap-2.5">
+              <span
+                aria-hidden="true"
+                className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-primary-foreground"
+              >
+                A
+              </span>
+              <span className="text-lg font-bold tracking-tight text-foreground">AIQEN</span>
             </Link>
           </div>
 
@@ -26,7 +32,7 @@ export function Topbar({ userName }: { userName: string }) {
             <Link
               href="/dashboard/notifications"
               aria-label="Notifications"
-              className="relative inline-flex size-10 items-center justify-center rounded-lg border border-border text-foreground outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+              className="relative inline-flex size-9 items-center justify-center rounded-lg border border-border text-foreground outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Bell className="size-4" />
               {unreadCount > 0 && (

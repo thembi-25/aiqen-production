@@ -9,28 +9,36 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
       <Container>
 
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
 
           <Link
             href="/"
-            className="text-2xl font-bold tracking-tight text-foreground"
+            className="flex items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            AIQEN
+            <span
+              aria-hidden="true"
+              className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-primary-foreground"
+            >
+              A
+            </span>
+            <span className="text-lg font-bold tracking-tight text-foreground">
+              AIQEN
+            </span>
           </Link>
 
           <div className="hidden lg:flex">
             <MegaMenu />
           </div>
 
-          <div className="flex items-center gap-3">
-            <NavAuthLink className="hidden h-10 px-5 sm:inline-flex" />
+          <div className="flex items-center gap-2.5">
+            <NavAuthLink className="hidden h-9 px-4 sm:inline-flex" />
 
             <Link
               href="/contact"
-              className={cn(buttonVariants({ size: "lg" }), "hidden h-10 px-5 sm:inline-flex")}
+              className={cn(buttonVariants({ size: "lg" }), "hidden h-9 px-4 sm:inline-flex")}
             >
               Book Consultation
             </Link>

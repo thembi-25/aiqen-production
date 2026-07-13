@@ -12,7 +12,7 @@ export function AiqenBadge({
   return (
     <span
       className={cn(
-        "inline-flex rounded-full border px-3 py-1 text-sm text-primary-text",
+        "inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1 text-sm font-medium text-primary-text",
         className
       )}
     >

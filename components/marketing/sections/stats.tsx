@@ -20,7 +20,7 @@ export function Stats() {
   return (
     <Section className="py-16 md:py-20">
       <Container>
-        <div className="grid grid-cols-2 gap-8 border-y border-border py-10 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 border-y border-border/70 py-10 md:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
