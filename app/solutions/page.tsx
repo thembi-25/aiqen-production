@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
@@ -8,9 +8,7 @@ import { CTA } from "@/components/marketing/sections/cta";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { buttonVariants } from "@/components/ui/button";
 import { solutions } from "@/lib/data/solutions";
 import { cn } from "@/lib/utils";
@@ -27,14 +25,11 @@ export default function SolutionsPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-16 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-16 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">
-                Solutions
-              </AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">Solutions</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 AI Solutions Designed Around Real Business Problems
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
@@ -48,7 +43,7 @@ export default function SolutionsPage() {
                 <a
                   key={solution.slug}
                   href={`#${solution.slug}`}
-                  className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                  className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
                 >
                   {solution.title}
                 </a>
@@ -57,17 +52,17 @@ export default function SolutionsPage() {
           </Container>
         </Section>
 
-        {solutions.map((solution, index) => (
+        {solutions.map((solution) => (
           <Section
             key={solution.slug}
             id={solution.slug}
-            className={cn("scroll-mt-24 py-16 md:py-20", index % 2 === 1 && "bg-card")}
+            className="scroll-mt-24 border-t border-border py-16 md:py-20"
           >
             <Container>
               <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
                 <div className="space-y-4 lg:sticky lg:top-28">
-                  <solution.icon className="size-10 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  <solution.icon className="size-8 text-muted-foreground" />
+                  <h2 className="text-3xl font-semibold tracking-tight text-foreground">
                     {solution.title}
                   </h2>
                   <Text size="lg">{solution.description}</Text>
@@ -79,19 +74,19 @@ export default function SolutionsPage() {
                   </Link>
                 </div>
 
-                <AiqenCard>
-                  <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+                <div>
+                  <h3 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                     Outcomes you can expect
                   </h3>
                   <ul className="mt-4 space-y-3">
                     {solution.outcomes.map((outcome) => (
                       <li key={outcome} className="flex gap-2.5 text-sm text-muted-foreground">
-                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+                        <Check className="mt-0.5 size-4 shrink-0 text-primary-text" />
                         {outcome}
                       </li>
                     ))}
                   </ul>
-                </AiqenCard>
+                </div>
               </div>
             </Container>
           </Section>

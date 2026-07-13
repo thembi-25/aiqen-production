@@ -10,9 +10,7 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { buttonVariants } from "@/components/ui/button";
 import { aiWorkforce } from "@/lib/data/ai-workforce";
 import { cn } from "@/lib/utils";
@@ -45,14 +43,11 @@ export default function AIWorkforcePage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-16 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-16 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">
-                AI Workforce
-              </AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">AI Workforce</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Meet Your Future AI Workforce
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
@@ -63,13 +58,13 @@ export default function AIWorkforcePage() {
           </Container>
         </Section>
 
-        <Section className="pt-0">
+        <Section className="border-t border-border pt-0">
           <Container>
             <WorkforceOrgChart />
           </Container>
         </Section>
 
-        <Section className="bg-card">
+        <Section className="border-t border-border">
           <Container>
             <div className="mb-10 space-y-4">
               <Heading size="subsection">Meet each AI employee</Heading>
@@ -79,34 +74,32 @@ export default function AIWorkforcePage() {
               </Text>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
               {aiWorkforce.map((employee) => (
                 <Link
                   key={employee.slug}
                   href={`/ai-workforce/${employee.slug}`}
-                  className="group block"
+                  className="group flex flex-col bg-background p-6"
                 >
-                  <AiqenCard className="flex h-full flex-col transition-transform duration-300 group-hover:-translate-y-1 group-hover:border-primary/50">
-                    <employee.icon className="size-8 text-primary" />
-                    <span className="mt-4 text-xs font-medium tracking-wide text-accent uppercase">
-                      {employee.role}
-                    </span>
-                    <h3 className="mt-1 text-lg font-semibold">{employee.title}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground">{employee.description}</p>
+                  <employee.icon className="size-6 text-muted-foreground" />
+                  <span className="mt-4 text-xs font-medium tracking-wide text-accent uppercase">
+                    {employee.role}
+                  </span>
+                  <h3 className="mt-1 text-lg font-semibold text-foreground">{employee.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{employee.description}</p>
 
-                    <ul className="mt-4 space-y-2 border-t border-border pt-4">
-                      {employee.capabilities.slice(0, 2).map((capability) => (
-                        <li key={capability} className="flex gap-2 text-xs text-muted-foreground">
-                          <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
-                          {capability}
-                        </li>
-                      ))}
-                    </ul>
+                  <ul className="mt-4 space-y-2 border-t border-border pt-4">
+                    {employee.capabilities.slice(0, 2).map((capability) => (
+                      <li key={capability} className="flex gap-2 text-xs text-muted-foreground">
+                        <Check className="mt-0.5 size-3.5 shrink-0 text-primary-text" />
+                        {capability}
+                      </li>
+                    ))}
+                  </ul>
 
-                    <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-primary-text">
-                      View details <ArrowRight className="size-3" />
-                    </span>
-                  </AiqenCard>
+                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-primary-text">
+                    View details <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                  </span>
                 </Link>
               ))}
             </div>
@@ -119,12 +112,10 @@ export default function AIWorkforcePage() {
           </Container>
         </Section>
 
-        <Section>
+        <Section className="border-t border-border">
           <Container>
             <div className="mb-10 space-y-4 text-center">
-              <AiqenBadge className="mx-auto border-accent/30 bg-accent/10">
-                AI Workforce Pricing
-              </AiqenBadge>
+              <Eyebrow className="mx-auto">AI Workforce Pricing</Eyebrow>
               <Heading size="subsection">Simple Plans, Coming Soon</Heading>
               <Text size="lg" className="mx-auto max-w-2xl">
                 AI Workforce SaaS pricing is being finalized. Join the waitlist and we&apos;ll
@@ -132,13 +123,13 @@ export default function AIWorkforcePage() {
               </Text>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-3">
               {comingSoonPlans.map((plan) => (
-                <AiqenCard
+                <div
                   key={plan.name}
                   className={cn(
-                    "flex flex-col items-center text-center",
-                    plan.highlighted && "border-primary/50"
+                    "flex flex-col items-center bg-background p-6 text-center",
+                    plan.highlighted && "bg-muted/40"
                   )}
                 >
                   <h3 className="text-lg font-semibold text-foreground">{plan.name}</h3>
@@ -146,7 +137,7 @@ export default function AIWorkforcePage() {
                   <span className="mt-4 rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground">
                     Coming Soon
                   </span>
-                </AiqenCard>
+                </div>
               ))}
             </div>
 

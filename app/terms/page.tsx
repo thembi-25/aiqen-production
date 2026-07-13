@@ -76,7 +76,7 @@ export default function TermsPage() {
         <Section className="pt-32">
           <Container>
             <div className="mx-auto max-w-3xl">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground">
+              <h1 className="text-4xl font-semibold tracking-tight text-foreground">
                 Terms of Service
               </h1>
               <p className="mt-3 text-sm text-muted-foreground">

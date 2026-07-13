@@ -19,31 +19,31 @@ const trustedBy = [
 
 export function Stats() {
   return (
-    <Section className="py-16 md:py-20">
+    <Section className="border-y border-border py-14 md:py-16">
       <Container>
-        <RevealStagger className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-[var(--shadow-elevation-1)] md:grid-cols-4">
+        <RevealStagger className="grid grid-cols-2 divide-x divide-y divide-border border border-border md:grid-cols-4 md:divide-y-0">
           {stats.map((stat) => (
             <RevealItem
               key={stat.label}
-              className="bg-card px-4 py-8 text-center md:py-10"
+              className="px-6 py-6 text-center md:py-8"
             >
-              <p className="text-4xl font-semibold tracking-tight text-foreground tabular-nums md:text-5xl">
+              <p className="text-3xl font-semibold tracking-tight text-foreground tabular-nums md:text-4xl">
                 {stat.value}
               </p>
-              <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
+              <p className="mt-1.5 text-sm text-muted-foreground">{stat.label}</p>
             </RevealItem>
           ))}
         </RevealStagger>
 
-        <Reveal delay={0.15} className="mt-12 space-y-6 text-center">
+        <Reveal delay={0.15} className="mt-10 flex flex-col items-center gap-5 text-center">
           <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
             Trusted by forward-thinking teams
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-9 gap-y-3">
             {trustedBy.map((name) => (
               <span
                 key={name}
-                className="text-lg font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {name}
               </span>

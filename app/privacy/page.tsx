@@ -69,7 +69,7 @@ export default function PrivacyPage() {
         <Section className="pt-32">
           <Container>
             <div className="mx-auto max-w-3xl">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground">Privacy Policy</h1>
+              <h1 className="text-4xl font-semibold tracking-tight text-foreground">Privacy Policy</h1>
               <p className="mt-3 text-sm text-muted-foreground">
                 Effective date: January 1, 2026 · This is a template policy and should be reviewed
                 by legal counsel before publication.

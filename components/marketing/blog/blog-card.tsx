@@ -7,7 +7,7 @@ import type { BlogPost } from "@/lib/data/blog";
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link href={`/blog/${post.slug}`} className="group block h-full">
-      <AiqenCard className="flex h-full flex-col transition-transform duration-300 group-hover:-translate-y-1 group-hover:border-primary/50">
+      <AiqenCard className="flex h-full flex-col group-hover:border-foreground/20">
         <span className="w-fit rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary-text">
           {post.category}
         </span>

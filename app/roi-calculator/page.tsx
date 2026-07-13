@@ -6,8 +6,7 @@ import { ROICalculator } from "@/components/marketing/roi-calculator";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
+import { Eyebrow } from "@/components/shared/eyebrow";
 
 export const metadata: Metadata = {
   title: "ROI Calculator — AIQEN",
@@ -21,14 +20,11 @@ export default function ROICalculatorPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-12 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-12 pt-32">
           <Container>
             <div className="mx-auto max-w-2xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">
-                ROI Calculator
-              </AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-5xl">
+              <Eyebrow className="mx-auto">ROI Calculator</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-5xl">
                 See What Automation Is Worth To Your Business
               </h1>
               <Text size="lg" className="mx-auto max-w-xl">

@@ -8,9 +8,7 @@ import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { Eyebrow } from "@/components/shared/eyebrow";
 
 export const metadata: Metadata = {
   title: "About AIQEN — AI Consulting & Automation Agency",
@@ -64,14 +62,11 @@ export default function AboutPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pt-32 pb-16">
-          <PageHeroGlow />
+        <Section className="pt-32 pb-16">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">
-                About AIQEN
-              </AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">About AIQEN</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Building the AI Workforce for Modern Business
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
@@ -82,48 +77,48 @@ export default function AboutPage() {
           </Container>
         </Section>
 
-        <Section className="pt-0">
+        <Section className="border-t border-border pt-16">
           <Container>
-            <div className="grid gap-6 md:grid-cols-2">
-              <AiqenCard>
-                <h2 className="text-2xl font-semibold">Our Mission</h2>
+            <div className="grid gap-10 border-t border-border pt-10 sm:grid-cols-2 sm:divide-x sm:divide-border">
+              <div className="sm:pr-10">
+                <h2 className="text-2xl font-semibold text-foreground">Our Mission</h2>
                 <p className="mt-4 text-muted-foreground">
                   To help every business — regardless of technical team size — deploy AI systems
                   that create measurable operational impact, without the risk or guesswork of
                   going it alone.
                 </p>
-              </AiqenCard>
-              <AiqenCard>
-                <h2 className="text-2xl font-semibold">Our Vision</h2>
+              </div>
+              <div className="sm:pl-10">
+                <h2 className="text-2xl font-semibold text-foreground">Our Vision</h2>
                 <p className="mt-4 text-muted-foreground">
                   A future where every business has an AI workforce working alongside its human
                   team — reliable, transparent, and deployed directly from the AIQEN platform.
                 </p>
-              </AiqenCard>
+              </div>
             </div>
           </Container>
         </Section>
 
-        <Section className="bg-card">
+        <Section className="border-t border-border">
           <Container>
-            <div className="space-y-6">
+            <div className="space-y-10">
               <Heading>Our Values</Heading>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
                 {values.map((value) => (
-                  <AiqenCard key={value.title}>
-                    <value.icon className="size-7 text-primary" />
-                    <h3 className="mt-4 text-lg font-semibold">{value.title}</h3>
+                  <div key={value.title} className="bg-background p-6">
+                    <value.icon className="size-5 text-muted-foreground" />
+                    <h3 className="mt-4 text-lg font-semibold text-foreground">{value.title}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">{value.description}</p>
-                  </AiqenCard>
+                  </div>
                 ))}
               </div>
             </div>
           </Container>
         </Section>
 
-        <Section>
+        <Section className="border-t border-border">
           <Container>
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               <div className="space-y-4">
                 <Heading size="subsection">Our Story</Heading>
                 <Text size="lg">
@@ -139,8 +134,8 @@ export default function AboutPage() {
                 </Text>
               </div>
 
-              <AiqenCard>
-                <h3 className="text-xl font-semibold">Why AIQEN</h3>
+              <div className="border-t border-border pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+                <h3 className="text-xl font-semibold text-foreground">Why AIQEN</h3>
                 <ul className="mt-6 space-y-4">
                   {whyAiqen.map((point) => (
                     <li key={point} className="flex gap-3 text-sm text-muted-foreground">
@@ -149,7 +144,7 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ul>
-              </AiqenCard>
+              </div>
             </div>
           </Container>
         </Section>

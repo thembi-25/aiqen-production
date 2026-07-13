@@ -8,9 +8,8 @@ import { Footer } from "@/components/marketing/footer";
 import { CTA } from "@/components/marketing/sections/cta";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { Text } from "@/components/shared/text";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
 import { buttonVariants } from "@/components/ui/button";
 import { aiWorkforce, type AIEmployee } from "@/lib/data/ai-workforce";
 import { cn } from "@/lib/utils";
@@ -63,14 +62,12 @@ export default async function AIEmployeeDetailPage({
               <ArrowLeft className="size-3.5" /> Back to AI Workforce
             </Link>
 
-            <div className="grid gap-10 lg:grid-cols-[auto_1fr] lg:items-start">
-              <div className="flex size-20 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary-text">
-                <employee.icon className="size-10" />
-              </div>
+            <div className="grid gap-6 lg:grid-cols-[auto_1fr] lg:items-start">
+              <employee.icon className="size-10 text-muted-foreground" />
 
               <div className="space-y-4">
-                <AiqenBadge className="border-primary/30 bg-primary/10">{employee.role}</AiqenBadge>
-                <h1 className="text-3xl font-bold tracking-tight text-balance text-foreground md:text-5xl">
+                <Eyebrow>{employee.role}</Eyebrow>
+                <h1 className="text-3xl font-semibold tracking-tight text-balance text-foreground md:text-5xl">
                   {employee.title}
                 </h1>
                 <Text size="lg" className="max-w-2xl">
@@ -87,25 +84,25 @@ export default async function AIEmployeeDetailPage({
           </Container>
         </Section>
 
-        <Section className="bg-card pt-0">
+        <Section className="border-t border-border pt-10">
           <Container>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <AiqenCard>
-                <h2 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+            <div className="grid gap-x-10 gap-y-10 border-t border-border pt-10 lg:grid-cols-2">
+              <div>
+                <h2 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                   Responsibilities
                 </h2>
                 <ul className="mt-4 space-y-3">
                   {employee.capabilities.map((capability) => (
                     <li key={capability} className="flex gap-2.5 text-sm text-muted-foreground">
-                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                      <Check className="mt-0.5 size-4 shrink-0 text-primary-text" />
                       {capability}
                     </li>
                   ))}
                 </ul>
-              </AiqenCard>
+              </div>
 
-              <AiqenCard>
-                <h2 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+              <div>
+                <h2 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                   Integrations
                 </h2>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -119,32 +116,32 @@ export default async function AIEmployeeDetailPage({
                     </span>
                   ))}
                 </div>
-              </AiqenCard>
+              </div>
 
-              <AiqenCard className="lg:col-span-2">
-                <h2 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+              <div className="border-t border-border pt-8 lg:col-span-2">
+                <h2 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                   Business value
                 </h2>
                 <Text size="lg" className="mt-4">
                   {employee.businessValue}
                 </Text>
-              </AiqenCard>
+              </div>
 
-              <AiqenCard className="lg:col-span-2">
-                <h2 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+              <div className="border-t border-border pt-8 lg:col-span-2">
+                <h2 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                   Demo workflow
                 </h2>
                 <ol className="mt-4 space-y-3">
                   {employee.demoWorkflow.map((step, i) => (
                     <li key={step} className="flex gap-3 text-sm text-muted-foreground">
-                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/10 font-mono text-xs text-primary-text">
-                        {i + 1}
+                      <span className="font-mono text-xs text-muted-foreground/70">
+                        {String(i + 1).padStart(2, "0")}
                       </span>
                       {step}
                     </li>
                   ))}
                 </ol>
-              </AiqenCard>
+              </div>
             </div>
           </Container>
         </Section>

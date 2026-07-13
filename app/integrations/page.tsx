@@ -6,11 +6,8 @@ import { CTA } from "@/components/marketing/sections/cta";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { integrationCategories, getIntegrationsByCategory } from "@/lib/data/integrations";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Integrations — AIQEN",
@@ -24,14 +21,11 @@ export default function IntegrationsPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-16 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-16 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">
-                Integrations
-              </AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">Integrations</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Connects To The Tools You Already Use
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
@@ -42,9 +36,9 @@ export default function IntegrationsPage() {
           </Container>
         </Section>
 
-        <Section className="pt-0">
+        <Section className="border-t border-border pt-0">
           <Container>
-            <div className="space-y-14">
+            <div className="space-y-14 pt-4">
               {integrationCategories.map((category) => {
                 const items = getIntegrationsByCategory(category);
                 if (items.length === 0) return null;
@@ -52,18 +46,15 @@ export default function IntegrationsPage() {
                 return (
                   <div key={category} className="space-y-6">
                     <h2 className="text-xl font-semibold text-foreground">{category}</h2>
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
                       {items.map((integration) => (
-                        <AiqenCard
-                          key={integration.id}
-                          className="flex flex-col gap-3 transition-transform duration-300 hover:-translate-y-1 hover:border-primary/50"
-                        >
-                          <integration.icon className={cn("size-7 text-primary")} />
+                        <div key={integration.id} className="flex flex-col gap-3 bg-background p-6">
+                          <integration.icon className="size-6 text-muted-foreground" />
                           <h3 className="text-base font-semibold text-foreground">
                             {integration.name}
                           </h3>
                           <p className="text-sm text-muted-foreground">{integration.description}</p>
-                        </AiqenCard>
+                        </div>
                       ))}
                     </div>
                   </div>

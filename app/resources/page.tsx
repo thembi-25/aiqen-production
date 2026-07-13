@@ -7,8 +7,7 @@ import { ResourceList } from "@/components/marketing/resources/resource-list";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { resources, resourceTypes } from "@/lib/data/resources";
 
 export const metadata: Metadata = {
@@ -23,12 +22,11 @@ export default function ResourcesPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-12 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-12 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">Resources</AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">Resources</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Guides, Playbooks & Templates for AI Automation
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">

@@ -8,9 +8,7 @@ import { CTA } from "@/components/marketing/sections/cta";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { buttonVariants } from "@/components/ui/button";
 import { industries } from "@/lib/data/industries";
 import { cn } from "@/lib/utils";
@@ -27,14 +25,11 @@ export default function IndustriesPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-16 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-16 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">
-                Industries
-              </AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">Industries</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 AI Solutions For Every Modern Business
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
@@ -48,7 +43,7 @@ export default function IndustriesPage() {
                 <a
                   key={industry.slug}
                   href={`#${industry.slug}`}
-                  className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                  className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
                 >
                   {industry.title}
                 </a>
@@ -57,17 +52,17 @@ export default function IndustriesPage() {
           </Container>
         </Section>
 
-        {industries.map((industry, index) => (
+        {industries.map((industry) => (
           <Section
             key={industry.slug}
             id={industry.slug}
-            className={cn("scroll-mt-24 py-16 md:py-20", index % 2 === 1 && "bg-card")}
+            className="scroll-mt-24 border-t border-border py-16 md:py-20"
           >
             <Container>
               <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
                 <div className="space-y-4 lg:sticky lg:top-28">
-                  <industry.icon className="size-10 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  <industry.icon className="size-8 text-muted-foreground" />
+                  <h2 className="text-3xl font-semibold tracking-tight text-foreground">
                     {industry.title}
                   </h2>
                   <Text size="lg">{industry.description}</Text>
@@ -79,8 +74,8 @@ export default function IndustriesPage() {
                   </Link>
                 </div>
 
-                <AiqenCard>
-                  <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+                <div>
+                  <h3 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                     Workflows we automate
                   </h3>
                   <ul className="mt-4 space-y-3">
@@ -91,7 +86,7 @@ export default function IndustriesPage() {
                       </li>
                     ))}
                   </ul>
-                </AiqenCard>
+                </div>
               </div>
             </Container>
           </Section>

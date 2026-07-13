@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.category}
               </span>
 
-              <h1 className="mt-4 text-3xl font-bold tracking-tight text-balance text-foreground md:text-5xl">
+              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-balance text-foreground md:text-5xl">
                 {post.title}
               </h1>
 
@@ -107,10 +107,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Section>
 
         {related.length > 0 ? (
-          <Section className="bg-card">
+          <Section className="border-t border-border">
             <Container>
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-foreground">More on {post.category}</h2>
+                <h2 className="text-2xl font-semibold text-foreground">More on {post.category}</h2>
                 <div className="grid gap-6 md:grid-cols-3">
                   {related.map((relatedPost) => (
                     <BlogCard key={relatedPost.slug} post={relatedPost} />

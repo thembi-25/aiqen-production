@@ -8,9 +8,7 @@ import { CTA } from "@/components/marketing/sections/cta";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { buttonVariants } from "@/components/ui/button";
 import { services } from "@/lib/data/services";
 import { cn } from "@/lib/utils";
@@ -27,14 +25,11 @@ export default function ServicesPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-16 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-16 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">
-                Services
-              </AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">Services</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 AI Services Built Around Business Outcomes
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
@@ -48,7 +43,7 @@ export default function ServicesPage() {
                 <a
                   key={service.slug}
                   href={`#${service.slug}`}
-                  className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                  className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
                 >
                   {service.title}
                 </a>
@@ -57,17 +52,17 @@ export default function ServicesPage() {
           </Container>
         </Section>
 
-        {services.map((service, index) => (
+        {services.map((service) => (
           <Section
             key={service.slug}
             id={service.slug}
-            className={cn("scroll-mt-24 py-16 md:py-20", index % 2 === 1 && "bg-card")}
+            className="scroll-mt-24 border-t border-border py-16 md:py-20"
           >
             <Container>
               <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
                 <div className="space-y-4 lg:sticky lg:top-28">
-                  <service.icon className="size-10 text-primary" />
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  <service.icon className="size-8 text-muted-foreground" />
+                  <h2 className="text-3xl font-semibold tracking-tight text-foreground">
                     {service.title}
                   </h2>
                   <Text size="lg">{service.overview}</Text>
@@ -79,9 +74,9 @@ export default function ServicesPage() {
                   </Link>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <AiqenCard>
-                    <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+                <div className="grid gap-10 sm:grid-cols-2">
+                  <div>
+                    <h3 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                       Benefits
                     </h3>
                     <ul className="mt-4 space-y-3">
@@ -92,26 +87,26 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                  </AiqenCard>
+                  </div>
 
-                  <AiqenCard>
-                    <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+                  <div>
+                    <h3 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                       Process
                     </h3>
                     <ol className="mt-4 space-y-3">
                       {service.process.map((step, i) => (
                         <li key={step} className="flex gap-2.5 text-sm text-muted-foreground">
-                          <span className="font-mono text-xs text-accent">
+                          <span className="font-mono text-xs text-muted-foreground/70">
                             {String(i + 1).padStart(2, "0")}
                           </span>
                           {step}
                         </li>
                       ))}
                     </ol>
-                  </AiqenCard>
+                  </div>
 
-                  <AiqenCard className="sm:col-span-2">
-                    <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
+                  <div className="border-t border-border pt-6 sm:col-span-2">
+                    <h3 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                       Deliverables
                     </h3>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -124,7 +119,7 @@ export default function ServicesPage() {
                         </span>
                       ))}
                     </div>
-                  </AiqenCard>
+                  </div>
                 </div>
               </div>
             </Container>

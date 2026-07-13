@@ -7,8 +7,7 @@ import { ContactForm } from "@/components/marketing/contact-form";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { AiqenCard } from "@/components/ui/aiqen-card";
 
 export const metadata: Metadata = {
@@ -28,12 +27,11 @@ export default function ContactPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-16 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-16 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">Contact</AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">Contact</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Let&apos;s Build Your AI Workforce
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
@@ -44,20 +42,20 @@ export default function ContactPage() {
           </Container>
         </Section>
 
-        <Section className="pt-0">
+        <Section className="border-t border-border pt-0">
           <Container>
-            <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
+            <div className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[1.3fr_1fr]">
               <AiqenCard>
                 <ContactForm />
               </AiqenCard>
 
-              <div className="space-y-6">
-                <AiqenCard>
+              <div className="space-y-10">
+                <div>
                   <h2 className="text-lg font-semibold text-foreground">Get in touch</h2>
                   <ul className="mt-5 space-y-4">
                     {contactDetails.map((detail) => (
                       <li key={detail.label} className="flex items-start gap-3">
-                        <detail.icon className="mt-0.5 size-5 shrink-0 text-primary" />
+                        <detail.icon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
                         <div>
                           <p className="text-xs text-muted-foreground">{detail.label}</p>
                           {detail.href ? (
@@ -71,16 +69,16 @@ export default function ContactPage() {
                       </li>
                     ))}
                   </ul>
-                </AiqenCard>
+                </div>
 
-                <AiqenCard className="flex flex-col items-center justify-center gap-3 py-12 text-center">
-                  <Calendar className="size-8 text-primary" />
+                <div className="flex flex-col items-center gap-3 border-t border-border py-10 text-center">
+                  <Calendar className="size-6 text-muted-foreground" />
                   <h2 className="text-lg font-semibold text-foreground">Book a Call Directly</h2>
                   <p className="max-w-xs text-sm text-muted-foreground">
                     Calendly scheduling will be embedded here. In the meantime, send us a message
                     and we&apos;ll set up time with you.
                   </p>
-                </AiqenCard>
+                </div>
               </div>
             </div>
           </Container>

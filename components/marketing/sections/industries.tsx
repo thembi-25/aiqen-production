@@ -5,10 +5,8 @@ import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
-import { IconTile } from "@/components/shared/icon-tile";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
 import { buttonVariants } from "@/components/ui/button";
 import { industries } from "@/lib/data/industries";
 import { cn } from "@/lib/utils";
@@ -17,10 +15,10 @@ const featured = industries.slice(0, 6);
 
 export function Industries() {
   return (
-    <Section id="industries" className="border-y border-border bg-card">
+    <Section id="industries" className="border-t border-border">
       <Container>
         <Reveal className="mx-auto max-w-2xl space-y-4 text-center">
-          <AiqenBadge className="mx-auto">Industries</AiqenBadge>
+          <Eyebrow className="mx-auto">Industries</Eyebrow>
           <Heading>AI solutions for every modern business</Heading>
           <Text size="lg" className="mx-auto">
             AIQEN adapts artificial intelligence solutions to your business goals, systems, and
@@ -28,18 +26,16 @@ export function Industries() {
           </Text>
         </Reveal>
 
-        <RevealStagger className="mt-14 grid gap-4 sm:grid-cols-2">
+        <RevealStagger className="mt-14 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
           {featured.map((industry) => (
-            <RevealItem key={industry.slug}>
-              <AiqenCard variant="interactive" className="flex h-full items-start gap-4 p-5">
-                <IconTile icon={industry.icon} size="sm" className="mt-0.5 shrink-0" />
-                <div>
-                  <h3 className="text-base font-semibold text-foreground">{industry.title}</h3>
-                  <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">
-                    {industry.description}
-                  </p>
-                </div>
-              </AiqenCard>
+            <RevealItem key={industry.slug} className="flex items-start gap-4 bg-background p-6">
+              <industry.icon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+              <div>
+                <h3 className="text-base font-semibold text-foreground">{industry.title}</h3>
+                <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">
+                  {industry.description}
+                </p>
+              </div>
             </RevealItem>
           ))}
         </RevealStagger>

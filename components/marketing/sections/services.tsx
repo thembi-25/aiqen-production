@@ -5,75 +5,58 @@ import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
-import { IconTile } from "@/components/shared/icon-tile";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
-import { AiqenCard } from "@/components/ui/aiqen-card";
 import { services } from "@/lib/data/services";
 
 export function Services() {
 
   return (
-    <Section id="services">
+    <Section id="services" className="border-t border-border">
 
       <Container>
 
-        <Reveal className="mx-auto max-w-2xl space-y-4 text-center">
-
-          <AiqenBadge className="mx-auto">Services</AiqenBadge>
-
-          <Heading>
-            AI solutions built around your business
-          </Heading>
-
-          <Text size="lg" className="mx-auto">
+        <Reveal className="max-w-2xl space-y-4">
+          <Eyebrow>Services</Eyebrow>
+          <Heading>AI solutions built around your business</Heading>
+          <Text size="lg">
             From strategy to implementation, AIQEN helps
             businesses adopt artificial intelligence in
             practical ways.
           </Text>
-
         </Reveal>
 
-        <RevealStagger className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="mt-14 grid border-t border-border sm:grid-cols-2">
 
           {services.map((service, index) => (
 
-            <RevealItem key={service.slug}>
+            <RevealItem
+              key={service.slug}
+              className="group border-b border-border py-8 sm:odd:border-r sm:odd:pr-8 sm:even:pl-8"
+            >
 
-              <AiqenCard
-                variant="interactive"
-                className="group relative flex h-full flex-col overflow-hidden"
+              <div className="flex items-start justify-between gap-4">
+                <service.icon className="size-5 text-muted-foreground" />
+                <span className="font-serif text-xl text-muted-foreground/50 select-none">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                {service.title}
+              </h3>
+
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {service.summary}
+              </p>
+
+              <Link
+                href={`/services#${service.slug}`}
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary-text"
               >
-
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-px scale-x-0 bg-primary-text transition-transform duration-500 group-hover:scale-x-100"
-                />
-
-                <div className="flex items-start justify-between">
-                  <IconTile icon={service.icon} />
-                  <span className="font-serif text-2xl font-normal text-muted-foreground/40 select-none">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <h3 className="mt-5 text-xl font-semibold text-foreground">
-                  {service.title}
-                </h3>
-
-                <p className="mt-3 flex-1 text-muted-foreground">
-                  {service.summary}
-                </p>
-
-                <Link
-                  href={`/services#${service.slug}`}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary-text"
-                >
-                  Learn more
-                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-
-              </AiqenCard>
+                Learn more
+                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
 
             </RevealItem>
 

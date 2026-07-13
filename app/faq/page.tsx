@@ -7,8 +7,7 @@ import { FAQ } from "@/components/marketing/sections/faq";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
-import { PageHeroGlow } from "@/components/shared/page-hero-glow";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
+import { Eyebrow } from "@/components/shared/eyebrow";
 
 export const metadata: Metadata = {
   title: "FAQ — AIQEN",
@@ -21,12 +20,11 @@ export default function FaqPage() {
       <Navbar />
 
       <main id="main-content">
-        <Section className="relative overflow-hidden pb-0 pt-32">
-          <PageHeroGlow />
+        <Section className="pb-0 pt-32">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <AiqenBadge className="mx-auto border-primary/30 bg-primary/10">FAQ</AiqenBadge>
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <Eyebrow className="mx-auto">FAQ</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Everything You Need to Know
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">

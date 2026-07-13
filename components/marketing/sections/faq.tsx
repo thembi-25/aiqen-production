@@ -6,7 +6,7 @@ import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import {
   Accordion,
   AccordionItem,
@@ -21,11 +21,11 @@ export function FAQ({ limit }: { limit?: number }) {
   const right = items.filter((_, index) => index % 2 === 1);
 
   return (
-    <Section id="faq">
+    <Section id="faq" className="border-t border-border">
       <Container>
         <Reveal className="mx-auto max-w-3xl space-y-6">
           <div className="space-y-4 text-center">
-            <AiqenBadge className="mx-auto">FAQ</AiqenBadge>
+            <Eyebrow className="mx-auto">FAQ</Eyebrow>
             <Heading>Frequently asked questions</Heading>
             <Text size="lg" className="mx-auto max-w-xl">
               Everything you need to know before getting started with AIQEN.
@@ -34,7 +34,7 @@ export function FAQ({ limit }: { limit?: number }) {
 
           <Accordion
             multiple
-            className="mt-4 grid overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[var(--shadow-elevation-2)] transition-shadow duration-300 hover:shadow-[var(--shadow-elevation-3)] lg:grid-cols-2 lg:divide-x lg:divide-border"
+            className="mt-4 grid border-t border-border lg:grid-cols-2 lg:divide-x lg:divide-border"
           >
             <div className="px-6">
               {left.map((item) => (

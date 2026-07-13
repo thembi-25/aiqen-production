@@ -1,14 +1,11 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { Compass, Rocket, Search, Wrench } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
-import { AiqenBadge } from "@/components/ui/aiqen-badge";
 
 const steps = [
   {
@@ -42,56 +39,36 @@ const steps = [
 ];
 
 export function Process() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <Section>
+    <Section className="border-t border-border">
       <Container>
         <Reveal className="mx-auto max-w-2xl space-y-4 text-center">
-          <AiqenBadge className="mx-auto">Process</AiqenBadge>
-
+          <Eyebrow className="mx-auto">Process</Eyebrow>
           <Heading>A practical approach to AI transformation</Heading>
-
           <Text size="lg" className="mx-auto">
             We combine business strategy, automation, and engineering to
             deliver AI solutions that create measurable impact.
           </Text>
         </Reveal>
 
-        <div className="relative mt-20">
-          <div
-            aria-hidden="true"
-            className="absolute top-6 right-[12.5%] left-[12.5%] hidden h-px overflow-hidden bg-border lg:block"
-          >
-            <motion.div
-              className="h-full origin-left bg-primary/30"
-              initial={reduceMotion ? undefined : { scaleX: 0 }}
-              whileInView={reduceMotion ? undefined : { scaleX: 1 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </div>
-
-          <RevealStagger className="grid gap-10 lg:grid-cols-4">
-            {steps.map((step) => (
-              <RevealItem key={step.number} className="relative flex flex-col items-center text-center">
-                <span className="relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-card text-primary-text shadow-[var(--shadow-elevation-2)]">
-                  <step.icon className="size-5" />
+        <RevealStagger className="mt-16 grid gap-10 border-t border-border pt-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {steps.map((step) => (
+            <RevealItem key={step.number}>
+              <div className="flex items-center gap-3">
+                <span className="font-serif text-2xl text-muted-foreground/50">
+                  {step.number}
                 </span>
+                <step.icon className="size-5 text-muted-foreground" />
+              </div>
 
-                <span className="mt-4 text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                  Step {step.number}
-                </span>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                {step.title}
+              </h3>
 
-                <h3 className="mt-1.5 text-xl font-semibold text-foreground">
-                  {step.title}
-                </h3>
-
-                <p className="mt-2 text-muted-foreground">{step.description}</p>
-              </RevealItem>
-            ))}
-          </RevealStagger>
-        </div>
+              <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+            </RevealItem>
+          ))}
+        </RevealStagger>
       </Container>
     </Section>
   );

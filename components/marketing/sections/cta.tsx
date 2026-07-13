@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CalendarCheck, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
@@ -10,9 +10,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const trustPoints = [
-  { icon: Sparkles, label: "Free AI Business Assessment" },
-  { icon: ShieldCheck, label: "No long-term lock-in" },
-  { icon: CalendarCheck, label: "Response within 24 hours" },
+  "Free AI Business Assessment",
+  "No long-term lock-in",
+  "Response within 24 hours",
 ];
 
 export function CTA() {
@@ -22,7 +22,7 @@ export function CTA() {
 
       <Container>
 
-        <Reveal className="mx-auto max-w-2xl rounded-3xl border border-border bg-card px-6 py-14 text-center shadow-[var(--shadow-elevation-2)] sm:px-12">
+        <Reveal className="mx-auto max-w-2xl text-center">
 
           <Heading>
             Ready to build your AI-powered business?
@@ -53,17 +53,9 @@ export function CTA() {
 
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t border-border/70 pt-6">
-            {trustPoints.map((point) => (
-              <span
-                key={point.label}
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground"
-              >
-                <point.icon className="size-3.5 text-primary-text" />
-                {point.label}
-              </span>
-            ))}
-          </div>
+          <p className="mt-8 text-xs text-muted-foreground">
+            {trustPoints.join("  ·  ")}
+          </p>
 
         </Reveal>
 

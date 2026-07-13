@@ -5,7 +5,7 @@ import { aiWorkforce } from "@/lib/data/ai-workforce";
 export function WorkforceOrgChart() {
   return (
     <div className="flex flex-col items-center">
-      <div className="rounded-2xl border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary-text">
+      <div className="rounded-2xl border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground">
         Your Business
       </div>
 
@@ -21,9 +21,9 @@ export function WorkforceOrgChart() {
 
               <Link
                 href={`/ai-workforce/${employee.slug}`}
-                className="group flex w-full flex-col items-center gap-2 rounded-2xl border border-border bg-card p-5 text-center transition-colors hover:border-primary/50"
+                className="group flex w-full flex-col items-center gap-2 rounded-2xl border border-border bg-card p-5 text-center transition-colors hover:border-foreground/30"
               >
-                <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary-text transition-colors group-hover:bg-primary/20">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-muted text-muted-foreground">
                   <employee.icon className="size-6" />
                 </div>
                 <span className="text-xs font-medium tracking-wide text-accent uppercase">

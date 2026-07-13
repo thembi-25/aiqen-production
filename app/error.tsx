@@ -38,15 +38,15 @@ export default function Error({
         <Section className="flex min-h-[70vh] items-center py-32">
           <Container>
             <div className="mx-auto flex max-w-xl flex-col items-center gap-6 text-center">
-              <div className="flex size-16 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10">
-                <TriangleAlert className="size-8 text-primary" />
+              <div className="flex size-16 items-center justify-center rounded-2xl border border-border bg-muted">
+                <TriangleAlert className="size-8 text-muted-foreground" />
               </div>
 
               <p className="text-sm font-medium tracking-widest text-muted-foreground uppercase">
                 Something Went Wrong
               </p>
 
-              <h1 className="text-4xl font-bold tracking-tight text-balance text-foreground md:text-6xl">
+              <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 An Unexpected Error Occurred
               </h1>
 
