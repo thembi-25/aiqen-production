@@ -1,10 +1,11 @@
-import { Compass, Rocket, Search, Wrench } from "lucide-react";
+import { ArrowRight, Compass, Rocket, Search, Wrench } from "lucide-react";
 
 import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { AppFrame } from "@/components/shared/app-frame";
 import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 
 const steps = [
@@ -38,16 +39,19 @@ const steps = [
   },
 ];
 
-export function Process() {
+const workflowSteps = ["Form submitted", "Lead scored", "CRM updated", "Rep notified"];
+
+export function HowItWorks() {
   return (
-    <Section className="border-t border-border">
+    <Section id="how-it-works" className="border-t border-border">
       <Container>
         <Reveal className="mx-auto max-w-2xl space-y-4 text-center">
-          <Eyebrow className="mx-auto">Process</Eyebrow>
+          <Eyebrow className="mx-auto">How AIQEN Works</Eyebrow>
           <Heading>A practical approach to AI transformation</Heading>
           <Text size="lg" className="mx-auto">
             We combine business strategy, automation, and engineering to
-            deliver AI solutions that create measurable impact.
+            deliver AI systems that create measurable impact — every one
+            visualized, tested, and monitored like the workflow below.
           </Text>
         </Reveal>
 
@@ -69,6 +73,23 @@ export function Process() {
             </RevealItem>
           ))}
         </RevealStagger>
+
+        <Reveal delay={0.1} className="mt-14">
+          <AppFrame title="Workflow Builder">
+            <div className="flex flex-wrap items-center gap-3 p-6 md:gap-4">
+              {workflowSteps.map((step, index) => (
+                <div key={step} className="flex items-center gap-3 md:gap-4">
+                  <span className="rounded-lg border border-border bg-muted px-4 py-2.5 text-sm font-medium text-foreground">
+                    {step}
+                  </span>
+                  {index < workflowSteps.length - 1 && (
+                    <ArrowRight className="size-4 shrink-0 text-muted-foreground" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </AppFrame>
+        </Reveal>
       </Container>
     </Section>
   );

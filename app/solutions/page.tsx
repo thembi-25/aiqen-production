@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
@@ -9,9 +8,9 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
-import { buttonVariants } from "@/components/ui/button";
+import { IconTile } from "@/components/shared/icon-tile";
+import { RevealStagger, RevealItem } from "@/components/shared/reveal";
 import { solutions } from "@/lib/data/solutions";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Solutions — AIQEN",
@@ -30,7 +29,7 @@ export default function SolutionsPage() {
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <Eyebrow className="mx-auto">Solutions</Eyebrow>
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
-                AI Solutions Designed Around Real Business Problems
+                AI solutions designed around real business problems
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
                 AIQEN combines strategy, automation, and intelligent systems to help businesses
@@ -52,45 +51,36 @@ export default function SolutionsPage() {
           </Container>
         </Section>
 
-        {solutions.map((solution) => (
-          <Section
-            key={solution.slug}
-            id={solution.slug}
-            className="scroll-mt-24 border-t border-border py-16 md:py-20"
-          >
-            <Container>
-              <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
-                <div className="space-y-4 lg:sticky lg:top-28">
-                  <solution.icon className="size-8 text-muted-foreground" />
-                  <h2 className="text-3xl font-semibold tracking-tight text-foreground">
-                    {solution.title}
-                  </h2>
-                  <Text size="lg">{solution.description}</Text>
-                  <Link
-                    href="/contact"
-                    className={cn(buttonVariants({ size: "lg" }), "mt-2 h-11 px-6")}
-                  >
-                    Get Started <ArrowRight className="size-4" />
-                  </Link>
-                </div>
+        <Section className="border-t border-border pt-4 pb-24">
+          <Container>
+            <RevealStagger className="divide-y divide-border">
+              {solutions.map((solution) => (
+                <div key={solution.slug} id={solution.slug} className="scroll-mt-24">
+                  <RevealItem className="grid gap-6 py-8 sm:grid-cols-[1fr_1fr] sm:items-start lg:gap-16">
+                    <div className="flex items-start gap-4">
+                      <IconTile icon={solution.icon} />
+                      <div>
+                        <h2 className="text-lg font-semibold text-foreground">{solution.title}</h2>
+                        <p className="mt-1.5 max-w-sm text-sm text-muted-foreground">
+                          {solution.description}
+                        </p>
+                      </div>
+                    </div>
 
-                <div>
-                  <h3 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
-                    Outcomes you can expect
-                  </h3>
-                  <ul className="mt-4 space-y-3">
-                    {solution.outcomes.map((outcome) => (
-                      <li key={outcome} className="flex gap-2.5 text-sm text-muted-foreground">
-                        <Check className="mt-0.5 size-4 shrink-0 text-primary-text" />
-                        {outcome}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-2.5 sm:pl-2">
+                      {solution.outcomes.map((outcome) => (
+                        <li key={outcome} className="flex gap-2.5 text-sm text-muted-foreground">
+                          <Check className="mt-0.5 size-4 shrink-0 text-primary-text" />
+                          {outcome}
+                        </li>
+                      ))}
+                    </ul>
+                  </RevealItem>
                 </div>
-              </div>
-            </Container>
-          </Section>
-        ))}
+              ))}
+            </RevealStagger>
+          </Container>
+        </Section>
 
         <CTA />
       </main>

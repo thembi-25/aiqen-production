@@ -16,7 +16,9 @@ import {
 import { industries } from "@/lib/data/industries";
 import { services } from "@/lib/data/services";
 import { aiWorkforce } from "@/lib/data/ai-workforce";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { AppFrame } from "@/components/shared/app-frame";
+import { Stat } from "@/components/shared/stat";
+import { Eyebrow } from "@/components/shared/eyebrow";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
@@ -129,7 +131,8 @@ export function AssessmentWizard() {
         ))}
       </div>
 
-      <AiqenCard>
+      <AppFrame title={`Step ${step} of ${TOTAL_STEPS}`}>
+        <div className="p-6">
         {step === 1 && (
           <div className="space-y-5">
             <h2 className="text-lg font-semibold text-foreground">Tell us about your business</h2>
@@ -313,17 +316,9 @@ export function AssessmentWizard() {
             </Button>
           )}
         </div>
-      </AiqenCard>
+        </div>
+      </AppFrame>
     </div>
-  );
-}
-
-function ScoreTile({ label, value }: { label: string; value: number }) {
-  return (
-    <AiqenCard className="text-center">
-      <div className="text-3xl font-bold text-primary-text">{value}</div>
-      <div className="mt-1 text-xs text-muted-foreground">{label}</div>
-    </AiqenCard>
   );
 }
 
@@ -355,28 +350,24 @@ function AssessmentResults({
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
-        <ScoreTile label="Automation Readiness" value={result.automationReadiness} />
-        <ScoreTile label="AI Readiness" value={result.aiReadiness} />
-        <ScoreTile label="Opportunity Score" value={result.opportunityScore} />
-      </div>
-
-      <AiqenCard>
-        <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
-          Estimated impact
-        </h3>
-        <p className="mt-3 text-lg text-foreground">
-          ~{result.estimatedHoursSavedPerWeek} hours saved per week · ~$
-          {result.estimatedMonthlySavings.toLocaleString()} estimated monthly savings
-        </p>
-      </AiqenCard>
+      <AppFrame title="Your Results">
+        <div className="grid grid-cols-3 gap-4 p-6">
+          <Stat value={`${result.automationReadiness}`} label="Automation Readiness" />
+          <Stat value={`${result.aiReadiness}`} label="AI Readiness" />
+          <Stat value={`${result.opportunityScore}`} label="Opportunity Score" />
+        </div>
+        <div className="border-t border-border p-6">
+          <Eyebrow>Estimated impact</Eyebrow>
+          <p className="mt-3 text-lg text-foreground">
+            ~{result.estimatedHoursSavedPerWeek} hours saved per week · ~$
+            {result.estimatedMonthlySavings.toLocaleString()} estimated monthly savings
+          </p>
+        </div>
+      </AppFrame>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <AiqenCard>
-          <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
-            Recommended services
-          </h3>
-          <ul className="mt-4 space-y-2">
+        <AppFrame title="Recommended Services">
+          <ul className="space-y-2 p-6">
             {recommendedServices.map((service) => (
               <li key={service.slug} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <service.icon className="size-4 text-primary" />
@@ -386,13 +377,10 @@ function AssessmentResults({
               </li>
             ))}
           </ul>
-        </AiqenCard>
+        </AppFrame>
 
-        <AiqenCard>
-          <h3 className="text-sm font-semibold tracking-wide text-primary-text uppercase">
-            Recommended AI workforce
-          </h3>
-          <ul className="mt-4 space-y-2">
+        <AppFrame title="Recommended AI Workforce">
+          <ul className="space-y-2 p-6">
             {recommendedWorkforce.map((employee) => (
               <li key={employee.slug} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <employee.icon className="size-4 text-primary" />
@@ -402,7 +390,7 @@ function AssessmentResults({
               </li>
             ))}
           </ul>
-        </AiqenCard>
+        </AppFrame>
       </div>
 
       <div className="flex flex-wrap justify-center gap-3">

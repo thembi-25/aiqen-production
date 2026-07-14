@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 
 import { ResourceCard } from "@/components/marketing/resources/resource-card";
+import { RevealStagger, RevealItem } from "@/components/shared/reveal";
 import { Input } from "@/components/ui/input";
 import type { Resource } from "@/lib/data/resources";
 import { cn } from "@/lib/utils";
@@ -81,11 +82,13 @@ export function ResourceList({
           No resources match your search.
         </p>
       ) : (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((resource) => (
-            <ResourceCard key={resource.slug} resource={resource} />
+            <RevealItem key={resource.slug}>
+              <ResourceCard resource={resource} />
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       )}
     </div>
   );

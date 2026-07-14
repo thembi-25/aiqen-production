@@ -12,9 +12,7 @@ export function Navbar() {
   return (
     <ScrollHeader>
       <Container>
-
         <div className="flex h-16 items-center justify-between">
-
           <Link
             href="/"
             className="flex items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -25,9 +23,7 @@ export function Navbar() {
             >
               A
             </span>
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              AIQEN
-            </span>
+            <span className="text-lg font-bold tracking-tight text-foreground">AIQEN</span>
           </Link>
 
           <div className="hidden lg:flex">
@@ -46,9 +42,7 @@ export function Navbar() {
 
             <MobileNav />
           </div>
-
         </div>
-
       </Container>
     </ScrollHeader>
   );

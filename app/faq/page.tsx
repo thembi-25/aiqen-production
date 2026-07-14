@@ -28,7 +28,12 @@ export default function FaqPage() {
                 Everything You Need to Know
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
-                Still have a question? <a href="/contact" className="text-primary-text hover:underline">Get in touch</a>.
+                Answers to the questions we hear most before a business starts working with
+                AIQEN. Still have a question?{" "}
+                <a href="/contact" className="text-primary-text hover:underline">
+                  Get in touch
+                </a>
+                .
               </Text>
             </div>
           </Container>

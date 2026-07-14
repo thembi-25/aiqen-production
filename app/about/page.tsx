@@ -9,6 +9,7 @@ import { Heading } from "@/components/shared/heading";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "About AIQEN — AI Consulting & Automation Agency",
@@ -64,7 +65,7 @@ export default function AboutPage() {
       <main id="main-content">
         <Section className="pt-32 pb-16">
           <Container>
-            <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
               <Eyebrow className="mx-auto">About AIQEN</Eyebrow>
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Building the AI Workforce for Modern Business
@@ -73,45 +74,47 @@ export default function AboutPage() {
                 AIQEN exists to make AI adoption practical, measurable, and durable — for
                 businesses that want results, not hype.
               </Text>
-            </div>
+            </Reveal>
           </Container>
         </Section>
 
         <Section className="border-t border-border pt-16">
           <Container>
-            <div className="grid gap-10 border-t border-border pt-10 sm:grid-cols-2 sm:divide-x sm:divide-border">
-              <div className="sm:pr-10">
+            <RevealStagger className="grid gap-10 border-t border-border pt-10 sm:grid-cols-2 sm:divide-x sm:divide-border">
+              <RevealItem className="sm:pr-10">
                 <h2 className="text-2xl font-semibold text-foreground">Our Mission</h2>
                 <p className="mt-4 text-muted-foreground">
                   To help every business — regardless of technical team size — deploy AI systems
                   that create measurable operational impact, without the risk or guesswork of
                   going it alone.
                 </p>
-              </div>
-              <div className="sm:pl-10">
+              </RevealItem>
+              <RevealItem className="sm:pl-10">
                 <h2 className="text-2xl font-semibold text-foreground">Our Vision</h2>
                 <p className="mt-4 text-muted-foreground">
                   A future where every business has an AI workforce working alongside its human
                   team — reliable, transparent, and deployed directly from the AIQEN platform.
                 </p>
-              </div>
-            </div>
+              </RevealItem>
+            </RevealStagger>
           </Container>
         </Section>
 
         <Section className="border-t border-border">
           <Container>
             <div className="space-y-10">
-              <Heading>Our Values</Heading>
-              <div className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+              <Reveal>
+                <Heading>Our Values</Heading>
+              </Reveal>
+              <RevealStagger className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
                 {values.map((value) => (
-                  <div key={value.title} className="bg-background p-6">
+                  <RevealItem key={value.title} className="bg-background p-6">
                     <value.icon className="size-5 text-muted-foreground" />
                     <h3 className="mt-4 text-lg font-semibold text-foreground">{value.title}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">{value.description}</p>
-                  </div>
+                  </RevealItem>
                 ))}
-              </div>
+              </RevealStagger>
             </div>
           </Container>
         </Section>
@@ -119,7 +122,7 @@ export default function AboutPage() {
         <Section className="border-t border-border">
           <Container>
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              <div className="space-y-4">
+              <Reveal className="space-y-4">
                 <Heading size="subsection">Our Story</Heading>
                 <Text size="lg">
                   AIQEN started with a simple observation: most businesses know AI could help
@@ -132,9 +135,12 @@ export default function AboutPage() {
                   Today, that means custom strategy and deployment for every client. Tomorrow, it
                   means any business can deploy their own AI workforce directly from AIQEN.
                 </Text>
-              </div>
+              </Reveal>
 
-              <div className="border-t border-border pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+              <Reveal
+                delay={0.1}
+                className="border-t border-border pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10"
+              >
                 <h3 className="text-xl font-semibold text-foreground">Why AIQEN</h3>
                 <ul className="mt-6 space-y-4">
                   {whyAiqen.map((point) => (
@@ -144,7 +150,7 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             </div>
           </Container>
         </Section>

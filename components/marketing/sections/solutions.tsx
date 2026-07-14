@@ -29,17 +29,12 @@ export function Solutions() {
         <RevealStagger className="mt-14 grid gap-px overflow-hidden border border-border bg-border lg:grid-flow-dense lg:grid-cols-3">
           <RevealItem className="bg-background p-8 lg:col-span-2 lg:row-span-2">
             <featured.icon className="size-6 text-muted-foreground" />
-            <h3 className="mt-5 text-2xl font-semibold text-foreground">
-              {featured.title}
-            </h3>
+            <h3 className="mt-5 text-2xl font-semibold text-foreground">{featured.title}</h3>
             <p className="mt-3 max-w-md text-muted-foreground">{featured.description}</p>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-3">
               {featured.outcomes.map((outcome) => (
-                <li
-                  key={outcome}
-                  className="flex items-start gap-2 text-sm text-muted-foreground"
-                >
+                <li key={outcome} className="flex items-start gap-2 text-sm text-muted-foreground">
                   <Check className="mt-0.5 size-4 shrink-0 text-primary-text" />
                   {outcome}
                 </li>
@@ -50,9 +45,7 @@ export function Solutions() {
           {rest.map((solution) => (
             <RevealItem key={solution.slug} className="bg-background p-6">
               <solution.icon className="size-5 text-muted-foreground" />
-              <h3 className="mt-4 text-base font-semibold text-foreground">
-                {solution.title}
-              </h3>
+              <h3 className="mt-4 text-base font-semibold text-foreground">{solution.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{solution.description}</p>
             </RevealItem>
           ))}

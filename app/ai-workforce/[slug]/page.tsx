@@ -10,6 +10,7 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Eyebrow } from "@/components/shared/eyebrow";
 import { Text } from "@/components/shared/text";
+import { AppFrame } from "@/components/shared/app-frame";
 import { buttonVariants } from "@/components/ui/button";
 import { aiWorkforce, type AIEmployee } from "@/lib/data/ai-workforce";
 import { cn } from "@/lib/utils";
@@ -131,16 +132,18 @@ export default async function AIEmployeeDetailPage({
                 <h2 className="text-xs font-semibold tracking-wide text-primary-text uppercase">
                   Demo workflow
                 </h2>
-                <ol className="mt-4 space-y-3">
-                  {employee.demoWorkflow.map((step, i) => (
-                    <li key={step} className="flex gap-3 text-sm text-muted-foreground">
-                      <span className="font-mono text-xs text-muted-foreground/70">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      {step}
-                    </li>
-                  ))}
-                </ol>
+                <AppFrame title={`${employee.title} — Demo Workflow`} className="mt-4">
+                  <ol className="flex flex-col divide-y divide-border">
+                    {employee.demoWorkflow.map((step, i) => (
+                      <li key={step} className="flex items-start gap-3 px-5 py-3.5 text-sm">
+                        <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-muted font-mono text-[10px] text-muted-foreground">
+                          {i + 1}
+                        </span>
+                        <span className="text-foreground">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </AppFrame>
               </div>
             </div>
           </Container>

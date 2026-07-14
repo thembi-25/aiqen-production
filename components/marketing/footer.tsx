@@ -14,12 +14,12 @@ const columns: { title: string; links: { href: string; label: string }[] }[] = [
       { href: "/ai-workforce", label: "AI Workforce" },
       { href: "/pricing", label: "Pricing" },
       { href: "/integrations", label: "Integrations" },
-      { href: "/case-studies", label: "Case Studies" },
     ],
   },
   {
-    title: "Tools",
+    title: "Resources",
     links: [
+      { href: "/case-studies", label: "Case Studies" },
       { href: "/assessment", label: "AI Business Assessment" },
       { href: "/roi-calculator", label: "ROI Calculator" },
       { href: "/resources", label: "Resources" },
@@ -40,9 +40,9 @@ const columns: { title: string; links: { href: string; label: string }[] }[] = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/70">
+    <footer className="border-t border-border">
       <Container>
-        <div className="grid gap-12 py-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-xs space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
               <span
@@ -59,7 +59,7 @@ export function Footer() {
 
             <div className="pt-2">
               <p className="mb-2 text-xs font-medium tracking-wide text-foreground uppercase">
-                Get AI strategy &amp; automation insights
+                AI strategy &amp; automation insights
               </p>
               <NewsletterForm />
             </div>
@@ -70,14 +70,14 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="AIQEN on X"
-                className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground outline-none transition-colors hover:border-primary/50 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground outline-none transition-colors hover:border-foreground/30 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <XIcon className="size-4" />
               </a>
               <a
                 href="mailto:hello@aiqen.com"
                 aria-label="Email AIQEN"
-                className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground outline-none transition-colors hover:border-primary/50 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground outline-none transition-colors hover:border-foreground/30 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <Mail className="size-4" />
               </a>
@@ -103,7 +103,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/70 py-8 text-sm text-muted-foreground sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border py-8 text-sm text-muted-foreground sm:flex-row">
           <p>© {new Date().getFullYear()} AIQEN. AI Consulting &amp; Automation.</p>
           <p>hello@aiqen.com</p>
         </div>

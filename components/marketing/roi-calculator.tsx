@@ -2,10 +2,10 @@
 
 import { useMemo, useState } from "react";
 import { useActionState } from "react";
-import { Mail } from "lucide-react";
 
 import { submitRoiLeadAction } from "@/app/actions/leads";
-import { AiqenCard } from "@/components/ui/aiqen-card";
+import { AppFrame } from "@/components/shared/app-frame";
+import { Stat } from "@/components/shared/stat";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -29,15 +29,6 @@ function computeResults(teamSize: number, hoursPerWeek: number, hourlyCost: numb
     productivityGainPercent: Math.round(productivityGainPercent),
     revenueIncreasePerMonth: Math.round(revenueIncreasePerMonth),
   };
-}
-
-function ResultTile({ label, value }: { label: string; value: string }) {
-  return (
-    <AiqenCard className="text-center">
-      <div className="text-2xl font-bold text-primary-text">{value}</div>
-      <div className="mt-1 text-xs text-muted-foreground">{label}</div>
-    </AiqenCard>
-  );
 }
 
 type LeadFormState = { error?: string; success?: string } | undefined;
@@ -83,9 +74,8 @@ export function ROICalculator() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
-      <AiqenCard>
-        <h2 className="text-lg font-semibold text-foreground">Your numbers</h2>
-        <div className="mt-6 space-y-6">
+      <AppFrame title="Your Inputs">
+        <div className="space-y-6 p-6">
           <div>
             <Label htmlFor="teamSize">Team size doing manual work</Label>
             <Input
@@ -127,27 +117,26 @@ export function ROICalculator() {
             />
           </div>
         </div>
-      </AiqenCard>
+      </AppFrame>
 
       <div className="space-y-6">
-        <div className="grid grid-cols-2 gap-4">
-          <ResultTile label="Hours saved / week" value={`${results.hoursSavedPerWeek}`} />
-          <ResultTile
-            label="Cost reduction / month"
-            value={`$${results.costReductionPerMonth.toLocaleString()}`}
-          />
-          <ResultTile label="Productivity gain" value={`${results.productivityGainPercent}%`} />
-          <ResultTile
-            label="Revenue increase / month"
-            value={`$${results.revenueIncreasePerMonth.toLocaleString()}`}
-          />
-        </div>
+        <AppFrame title="Estimated Impact">
+          <div className="grid grid-cols-2 gap-6 p-6">
+            <Stat value={`${results.hoursSavedPerWeek}`} label="Hours saved / week" />
+            <Stat
+              value={`$${results.costReductionPerMonth.toLocaleString()}`}
+              label="Cost reduction / month"
+            />
+            <Stat value={`${results.productivityGainPercent}%`} label="Productivity gain" />
+            <Stat
+              value={`$${results.revenueIncreasePerMonth.toLocaleString()}`}
+              label="Revenue increase / month"
+            />
+          </div>
+        </AppFrame>
 
-        <AiqenCard>
-          <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
-            <Mail className="size-4 text-primary" /> Email me these results
-          </h3>
-          <form action={leadAction} className="mt-4 space-y-3">
+        <AppFrame title="Email Me These Results">
+          <form action={leadAction} className="space-y-3 p-6">
             <Input name="name" placeholder="Your name" required />
             <Input name="email" type="email" placeholder="Work email" required />
             <Input name="company" placeholder="Company name" required />
@@ -156,7 +145,7 @@ export function ROICalculator() {
               {isLeadPending ? "Sending..." : "Send my results"}
             </Button>
           </form>
-        </AiqenCard>
+        </AppFrame>
       </div>
     </div>
   );

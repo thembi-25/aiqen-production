@@ -33,6 +33,12 @@ export default function PricingPage() {
                 Every plan starts with a strategy conversation, so you know exactly what you&apos;re
                 building before you commit.
               </Text>
+              <p className="text-sm text-muted-foreground">
+                Not sure which plan fits?{" "}
+                <a href="/assessment" className="font-medium text-primary-text hover:underline">
+                  Take the free AI Business Assessment
+                </a>
+              </p>
             </div>
           </Container>
         </Section>

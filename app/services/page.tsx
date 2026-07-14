@@ -9,9 +9,9 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
-import { buttonVariants } from "@/components/ui/button";
+import { IconTile } from "@/components/shared/icon-tile";
+import { Reveal } from "@/components/shared/reveal";
 import { services } from "@/lib/data/services";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Services — AIQEN",
@@ -30,7 +30,7 @@ export default function ServicesPage() {
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <Eyebrow className="mx-auto">Services</Eyebrow>
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
-                AI Services Built Around Business Outcomes
+                AI services built around business outcomes
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
                 Every engagement moves from strategy to a deployed, monitored system — no
@@ -59,18 +59,19 @@ export default function ServicesPage() {
             className="scroll-mt-24 border-t border-border py-16 md:py-20"
           >
             <Container>
-              <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+              <Reveal className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
                 <div className="space-y-4 lg:sticky lg:top-28">
-                  <service.icon className="size-8 text-muted-foreground" />
+                  <IconTile icon={service.icon} size="lg" />
                   <h2 className="text-3xl font-semibold tracking-tight text-foreground">
                     {service.title}
                   </h2>
                   <Text size="lg">{service.overview}</Text>
                   <Link
                     href="/contact"
-                    className={cn(buttonVariants({ size: "lg" }), "mt-2 h-11 px-6")}
+                    className="inline-flex items-center gap-1.5 pt-2 text-sm font-medium text-primary-text transition-colors hover:opacity-80"
                   >
-                    Get Started <ArrowRight className="size-4" />
+                    Talk to us about {service.title}
+                    <ArrowRight className="size-3.5" />
                   </Link>
                 </div>
 
@@ -121,7 +122,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </Container>
           </Section>
         ))}

@@ -8,6 +8,7 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { Reveal } from "@/components/shared/reveal";
 import { AiqenCard } from "@/components/ui/aiqen-card";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function ContactPage() {
       <main id="main-content">
         <Section className="pb-16 pt-32">
           <Container>
-            <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
               <Eyebrow className="mx-auto">Contact</Eyebrow>
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
                 Let&apos;s Build Your AI Workforce
@@ -38,18 +39,20 @@ export default function ContactPage() {
                 Tell us about your goals and we&apos;ll follow up within one business day to
                 schedule a consultation.
               </Text>
-            </div>
+            </Reveal>
           </Container>
         </Section>
 
         <Section className="border-t border-border pt-0">
           <Container>
             <div className="grid gap-10 border-t border-border pt-10 lg:grid-cols-[1.3fr_1fr]">
-              <AiqenCard>
-                <ContactForm />
-              </AiqenCard>
+              <Reveal>
+                <AiqenCard>
+                  <ContactForm />
+                </AiqenCard>
+              </Reveal>
 
-              <div className="space-y-10">
+              <Reveal delay={0.1} className="space-y-10">
                 <div>
                   <h2 className="text-lg font-semibold text-foreground">Get in touch</h2>
                   <ul className="mt-5 space-y-4">
@@ -79,7 +82,7 @@ export default function ContactPage() {
                     and we&apos;ll set up time with you.
                   </p>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </Container>
         </Section>

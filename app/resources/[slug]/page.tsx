@@ -9,6 +9,7 @@ import { CTA } from "@/components/marketing/sections/cta";
 import { ResourceCard } from "@/components/marketing/resources/resource-card";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { Reveal, RevealStagger, RevealItem } from "@/components/shared/reveal";
 import { resources } from "@/lib/data/resources";
 
 interface ResourcePageProps {
@@ -52,7 +53,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
       <main id="main-content">
         <Section className="pb-0 pt-32">
           <Container>
-            <div className="mx-auto max-w-3xl">
+            <Reveal className="mx-auto max-w-3xl">
               <Link
                 href="/resources"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -73,7 +74,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
                 <Clock className="size-4" />
                 {resource.readTime}
               </div>
-            </div>
+            </Reveal>
           </Container>
         </Section>
 
@@ -94,11 +95,13 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
             <Container>
               <div className="space-y-6">
                 <h2 className="text-2xl font-semibold text-foreground">More {resource.type}</h2>
-                <div className="grid gap-6 md:grid-cols-3">
+                <RevealStagger className="grid gap-6 md:grid-cols-3">
                   {related.map((relatedResource) => (
-                    <ResourceCard key={relatedResource.slug} resource={relatedResource} />
+                    <RevealItem key={relatedResource.slug}>
+                      <ResourceCard resource={relatedResource} />
+                    </RevealItem>
                   ))}
-                </div>
+                </RevealStagger>
               </div>
             </Container>
           </Section>

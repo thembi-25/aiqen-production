@@ -11,9 +11,17 @@ import { Section } from "@/components/shared/section";
 import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { AppFrame } from "@/components/shared/app-frame";
+import { Stat } from "@/components/shared/stat";
 import { buttonVariants } from "@/components/ui/button";
 import { aiWorkforce } from "@/lib/data/ai-workforce";
 import { cn } from "@/lib/utils";
+
+const workforceStats = [
+  { value: String(aiWorkforce.length), label: "AI employee roles" },
+  { value: "40+", label: "Systems deployed" },
+  { value: "24/7", label: "Availability" },
+];
 
 export const metadata: Metadata = {
   title: "AI Workforce — AIQEN",
@@ -55,12 +63,22 @@ export default function AIWorkforcePage() {
                 monitoring, and human checkpoints built in.
               </Text>
             </div>
+
+            <div className="mx-auto mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-border pt-8">
+              {workforceStats.map((stat) => (
+                <Stat key={stat.label} value={stat.value} label={stat.label} className="text-center" />
+              ))}
+            </div>
           </Container>
         </Section>
 
         <Section className="border-t border-border pt-0">
           <Container>
-            <WorkforceOrgChart />
+            <AppFrame title="AI Workforce Org Chart">
+              <div className="p-6">
+                <WorkforceOrgChart />
+              </div>
+            </AppFrame>
           </Container>
         </Section>
 

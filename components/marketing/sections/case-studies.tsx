@@ -9,6 +9,14 @@ import { Eyebrow } from "@/components/shared/eyebrow";
 import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 import { caseStudies } from "@/lib/data/case-studies";
 
+function PlaceholderTag() {
+  return (
+    <span className="rounded-full border border-border px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
+      Illustrative example
+    </span>
+  );
+}
+
 export function CaseStudies() {
   const [featured, ...rest] = caseStudies;
 
@@ -17,20 +25,22 @@ export function CaseStudies() {
       <Container>
         <Reveal className="mx-auto max-w-2xl space-y-4 text-center">
           <Eyebrow className="mx-auto">Case Studies</Eyebrow>
-          <Heading>Real results from real deployments</Heading>
+          <Heading>The kind of results we build toward</Heading>
           <Text size="lg" className="mx-auto">
-            See how businesses across industries use AIQEN to automate work and grow faster.
+            The examples below illustrate the scale of impact a typical AIQEN engagement
+            targets, while we publish verified results from live client deployments.
           </Text>
         </Reveal>
 
         <RevealStagger className="mt-14 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
           <RevealItem className="border-t border-border pt-8">
-            <span className="text-xs font-medium tracking-wide text-accent uppercase">
-              {featured.industry}
-            </span>
-            <h3 className="mt-2 text-2xl font-semibold text-foreground">
-              {featured.client}
-            </h3>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-medium tracking-wide text-accent uppercase">
+                {featured.industry}
+              </span>
+              <PlaceholderTag />
+            </div>
+            <h3 className="mt-2 text-2xl font-semibold text-foreground">{featured.client}</h3>
 
             <p className="mt-4 text-muted-foreground">{featured.challenge}</p>
             <p className="mt-3 text-muted-foreground">{featured.solution}</p>
@@ -57,9 +67,12 @@ export function CaseStudies() {
           <div className="divide-y divide-border border-t border-border">
             {rest.map((study) => (
               <RevealItem key={study.slug} className="py-6 first:pt-8">
-                <span className="text-xs font-medium tracking-wide text-accent uppercase">
-                  {study.industry}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-medium tracking-wide text-accent uppercase">
+                    {study.industry}
+                  </span>
+                  <PlaceholderTag />
+                </div>
                 <h3 className="mt-2 text-lg font-semibold text-foreground">{study.client}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{study.challenge}</p>
 

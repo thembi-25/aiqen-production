@@ -12,13 +12,13 @@ import { services } from "@/lib/data/services";
 
 const featured = painPointOptions.slice(0, 6);
 
-export function Problems() {
+export function Challenges() {
   return (
-    <Section id="problems">
+    <Section id="challenges" className="border-t border-border">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal className="space-y-4">
-            <Eyebrow>Business Problems We Solve</Eyebrow>
+            <Eyebrow>Business Challenges</Eyebrow>
             <Heading>The problems quietly costing you time and revenue</Heading>
             <Text size="lg">
               We don&apos;t start with an AI agent looking for a use case. We start with

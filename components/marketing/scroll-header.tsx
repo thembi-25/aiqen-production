@@ -17,7 +17,7 @@ export function ScrollHeader({ children }: { children: React.ReactNode }) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl transition-shadow duration-300 supports-backdrop-filter:bg-background/60",
+        "sticky top-0 z-50 border-b border-border/60 bg-background transition-shadow duration-300",
         scrolled && "shadow-[var(--shadow-elevation-2)]"
       )}
     >

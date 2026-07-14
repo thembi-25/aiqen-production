@@ -4,6 +4,7 @@ import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { Eyebrow } from "@/components/shared/eyebrow";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — AIQEN",
@@ -68,8 +69,11 @@ export default function PrivacyPage() {
       <main id="main-content">
         <Section className="pt-32">
           <Container>
-            <div className="mx-auto max-w-3xl">
-              <h1 className="text-4xl font-semibold tracking-tight text-foreground">Privacy Policy</h1>
+            <div className="mx-auto max-w-2xl">
+              <Eyebrow>Legal</Eyebrow>
+              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground">
+                Privacy Policy
+              </h1>
               <p className="mt-3 text-sm text-muted-foreground">
                 Effective date: January 1, 2026 · This is a template policy and should be reviewed
                 by legal counsel before publication.

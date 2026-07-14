@@ -7,7 +7,7 @@ import type { Resource } from "@/lib/data/resources";
 export function ResourceCard({ resource }: { resource: Resource }) {
   return (
     <Link href={`/resources/${resource.slug}`} className="group block h-full">
-      <AiqenCard className="flex h-full flex-col group-hover:border-foreground/20">
+      <AiqenCard variant="interactive" className="flex h-full flex-col">
         <span className="w-fit rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary-text">
           {resource.type}
         </span>

@@ -5,6 +5,7 @@ import { Section } from "@/components/shared/section";
 import { Container } from "@/components/shared/container";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { AppFrame } from "@/components/shared/app-frame";
 import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -21,13 +22,9 @@ const activity = [38, 52, 46, 64, 58, 74, 88];
 export function Hero() {
   return (
     <Section className="pt-32 pb-24 md:pt-40 md:pb-28">
-
       <Container>
-
         <div className="grid items-start gap-16 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
-
           <Reveal>
-
             <Eyebrow>AI Consulting &amp; Automation</Eyebrow>
 
             <h1 className="mt-5 text-5xl font-semibold tracking-tight text-balance text-foreground md:text-[4rem] md:leading-[1.05]">
@@ -45,7 +42,6 @@ export function Hero() {
             </Text>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-
               <Link
                 href="/contact"
                 className={cn(buttonVariants({ size: "lg" }), "h-12 px-6 text-base")}
@@ -63,7 +59,6 @@ export function Hero() {
               >
                 Explore AI Workforce
               </Link>
-
             </div>
 
             <Link
@@ -73,18 +68,10 @@ export function Hero() {
               Take the free AI Business Assessment
               <ArrowUpRight className="size-3.5" />
             </Link>
-
           </Reveal>
 
           <Reveal delay={0.15}>
-
-            <div className="overflow-hidden rounded-2xl border border-border bg-card">
-
-              <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
-                <p className="text-sm font-medium text-foreground">AI Workforce</p>
-                <span className="text-xs text-muted-foreground">40+ systems deployed</span>
-              </div>
-
+            <AppFrame title="AI Workforce">
               <RevealStagger className="divide-y divide-border">
                 {agents.map((agent) => (
                   <RevealItem
@@ -117,15 +104,10 @@ export function Hero() {
                   ))}
                 </div>
               </div>
-
-            </div>
-
+            </AppFrame>
           </Reveal>
-
         </div>
-
       </Container>
-
     </Section>
   );
 }

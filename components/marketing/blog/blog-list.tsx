@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 
 import { BlogCard } from "@/components/marketing/blog/blog-card";
+import { RevealStagger, RevealItem } from "@/components/shared/reveal";
 import { Input } from "@/components/ui/input";
 import type { BlogPost } from "@/lib/data/blog";
 import { cn } from "@/lib/utils";
@@ -79,11 +80,13 @@ export function BlogList({
           No articles match your search.
         </p>
       ) : (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((post) => (
-            <BlogCard key={post.slug} post={post} />
+            <RevealItem key={post.slug}>
+              <BlogCard post={post} />
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       )}
     </div>
   );

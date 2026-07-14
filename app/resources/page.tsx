@@ -8,6 +8,7 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { Reveal } from "@/components/shared/reveal";
 import { resources, resourceTypes } from "@/lib/data/resources";
 
 export const metadata: Metadata = {
@@ -24,16 +25,16 @@ export default function ResourcesPage() {
       <main id="main-content">
         <Section className="pb-12 pt-32">
           <Container>
-            <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
               <Eyebrow className="mx-auto">Resources</Eyebrow>
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
-                Guides, Playbooks & Templates for AI Automation
+                Guides, Playbooks &amp; Templates for AI Automation
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
                 Practical resources for planning, launching, and scaling AI automation — separate
                 from our blog, built to be used, not just read.
               </Text>
-            </div>
+            </Reveal>
           </Container>
         </Section>
 

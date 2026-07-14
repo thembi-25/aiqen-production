@@ -8,6 +8,7 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { Reveal } from "@/components/shared/reveal";
 import { blogCategories, blogPosts } from "@/lib/data/blog";
 
 export const metadata: Metadata = {
@@ -24,15 +25,15 @@ export default function BlogPage() {
       <main id="main-content">
         <Section className="pb-12 pt-32">
           <Container>
-            <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
               <Eyebrow className="mx-auto">Blog</Eyebrow>
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
-                Insights on AI Strategy & Automation
+                Insights on AI Strategy &amp; Automation
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
                 Practical, no-hype writing on building AI systems that actually work.
               </Text>
-            </div>
+            </Reveal>
           </Container>
         </Section>
 

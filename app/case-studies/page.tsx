@@ -7,14 +7,23 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { Stat } from "@/components/shared/stat";
 import { caseStudies } from "@/lib/data/case-studies";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Case Studies — AIQEN",
   description:
-    "See measurable results from AIQEN's AI automation and AI agent deployments across logistics, legal, and retail.",
+    "Illustrative examples of the results a typical AIQEN AI automation and AI agent deployment targets, across logistics, legal, and retail.",
 };
+
+function PlaceholderTag() {
+  return (
+    <span className="rounded-full border border-border px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
+      Illustrative example
+    </span>
+  );
+}
 
 export default function CaseStudiesPage() {
   return (
@@ -27,11 +36,12 @@ export default function CaseStudiesPage() {
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <Eyebrow className="mx-auto">Case Studies</Eyebrow>
               <h1 className="text-4xl font-semibold tracking-tight text-balance text-foreground md:text-6xl">
-                Measurable Results, Not Just Demos
+                The Kind of Results We Build Toward
               </h1>
               <Text size="lg" className="mx-auto max-w-2xl">
-                Every AIQEN engagement is scoped against a metric that matters. Here&apos;s what
-                that looks like in practice.
+                Every AIQEN engagement is scoped against a metric that matters. The examples
+                below are illustrative — they show the scale of impact we target on a typical
+                engagement while we publish verified results from live client deployments.
               </Text>
             </div>
           </Container>
@@ -49,9 +59,12 @@ export default function CaseStudiesPage() {
                   )}
                 >
                   <div className="space-y-4">
-                    <span className="text-xs font-medium tracking-wide text-accent uppercase">
-                      {study.industry}
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-medium tracking-wide text-accent uppercase">
+                        {study.industry}
+                      </span>
+                      <PlaceholderTag />
+                    </div>
                     <h2 className="text-2xl font-semibold text-foreground">{study.client}</h2>
 
                     <div>
@@ -75,12 +88,12 @@ export default function CaseStudiesPage() {
 
                   <div className="grid grid-cols-3 gap-4 border-t border-border pt-6 lg:border-t-0 lg:pt-0">
                     {study.metrics.map((metric) => (
-                      <div key={metric.label} className="text-center">
-                        <p className="text-3xl font-semibold tracking-tight text-foreground">
-                          {metric.value}
-                        </p>
-                        <p className="mt-2 text-xs text-muted-foreground">{metric.label}</p>
-                      </div>
+                      <Stat
+                        key={metric.label}
+                        value={metric.value}
+                        label={metric.label}
+                        className="text-center"
+                      />
                     ))}
                   </div>
                 </div>

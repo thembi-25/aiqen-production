@@ -7,7 +7,10 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { Text } from "@/components/shared/text";
 import { Eyebrow } from "@/components/shared/eyebrow";
-import { integrationCategories, getIntegrationsByCategory } from "@/lib/data/integrations";
+import { AppFrame } from "@/components/shared/app-frame";
+import { integrations, integrationCategories, getIntegrationsByCategory } from "@/lib/data/integrations";
+
+const previewApps = integrations.slice(0, 10);
 
 export const metadata: Metadata = {
   title: "Integrations — AIQEN",
@@ -32,6 +35,22 @@ export default function IntegrationsPage() {
                 AI employees and workflows plug directly into your existing CRM, calendar,
                 communication, and data stack — no rip-and-replace required.
               </Text>
+            </div>
+
+            <div className="mx-auto mt-12 max-w-3xl">
+              <AppFrame title="Connected Apps">
+                <div className="flex flex-wrap items-center justify-center gap-3 p-6">
+                  {previewApps.map((integration) => (
+                    <span
+                      key={integration.id}
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3.5 py-2 text-sm font-medium text-foreground"
+                    >
+                      <integration.icon className="size-4 text-muted-foreground" />
+                      {integration.name}
+                    </span>
+                  ))}
+                </div>
+              </AppFrame>
             </div>
           </Container>
         </Section>

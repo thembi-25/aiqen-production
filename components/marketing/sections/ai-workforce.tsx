@@ -6,6 +6,7 @@ import { Heading } from "@/components/shared/heading";
 import { Text } from "@/components/shared/text";
 import { Section } from "@/components/shared/section";
 import { Eyebrow } from "@/components/shared/eyebrow";
+import { AppFrame } from "@/components/shared/app-frame";
 import { Reveal, RevealItem, RevealStagger } from "@/components/shared/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { aiWorkforce } from "@/lib/data/ai-workforce";
@@ -18,7 +19,7 @@ export function AIWorkforce() {
   const featured = aiWorkforce.slice(0, 4);
 
   return (
-    <Section className="border-t border-border">
+    <Section id="ai-workforce" className="border-t border-border">
       <Container>
         <Reveal className="max-w-2xl space-y-4">
           <Eyebrow>AI Workforce</Eyebrow>
@@ -47,11 +48,7 @@ export function AIWorkforce() {
           </RevealStagger>
 
           <Reveal delay={0.15}>
-            <div className="overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="border-b border-border px-5 py-3.5">
-                <p className="text-sm font-medium text-foreground">Workforce Console</p>
-              </div>
-
+            <AppFrame title="Workforce Console">
               <div className="space-y-4 p-5">
                 {featured.map((agent, index) => (
                   <div key={agent.slug} className="space-y-1.5">
@@ -78,7 +75,7 @@ export function AIWorkforce() {
                   <ArrowRight className="size-3.5" />
                 </Link>
               </div>
-            </div>
+            </AppFrame>
           </Reveal>
         </div>
 

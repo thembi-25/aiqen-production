@@ -24,7 +24,7 @@ function NavigationMenu({
         >
           <NavigationMenuPrimitive.Popup
             data-slot="navigation-menu-popup"
-            className="w-[var(--popup-width)] origin-[var(--transform-origin)] rounded-2xl border border-border bg-card shadow-2xl outline-none transition-[opacity,transform] duration-200 ease-out data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0"
+            className="w-[var(--popup-width)] origin-[var(--transform-origin)] rounded-2xl border border-border bg-card shadow-[var(--shadow-elevation-4)] outline-none transition-[opacity,transform] duration-200 ease-out data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0"
           >
             <NavigationMenuPrimitive.Viewport data-slot="navigation-menu-viewport" />
           </NavigationMenuPrimitive.Popup>

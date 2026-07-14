@@ -4,6 +4,7 @@ import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { Eyebrow } from "@/components/shared/eyebrow";
 
 export const metadata: Metadata = {
   title: "Terms of Service — AIQEN",
@@ -75,8 +76,9 @@ export default function TermsPage() {
       <main id="main-content">
         <Section className="pt-32">
           <Container>
-            <div className="mx-auto max-w-3xl">
-              <h1 className="text-4xl font-semibold tracking-tight text-foreground">
+            <div className="mx-auto max-w-2xl">
+              <Eyebrow>Legal</Eyebrow>
+              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground">
                 Terms of Service
               </h1>
               <p className="mt-3 text-sm text-muted-foreground">
